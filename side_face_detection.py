@@ -7,10 +7,9 @@ import dlib
 
 
 # def POINTS(event, x, y, flags, param):
-#     if event == cv2.EVENT_MOUSEMOVE :  
+#     if event == cv2.EVENT_MOUSEMOVE :
 #         colorsBGR = [x, y]
 #         print(colorsBGR)
-
 # cv2.namedWindow("Frame")
 # cv2.setMouseCallback("Frame", POINTS)
 detector = dlib.get_frontal_face_detector()
@@ -18,22 +17,22 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
 # while True:
 #     _, frame = cap.read()
-    
+
 
 #     key = cv2.waitKey(1)
 #     if key == 27:
 #         break
 def side_face_detector(frame):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    gray = cv2.flip(gray,1)
-    frame = cv2.flip(frame,1)
+    gray = cv2.flip(gray, 1)
+    frame = cv2.flip(frame, 1)
     faces = detector(gray)
     for face in faces:
         # x1 = face.left()
         # y1 = face.top()
         # x2 = face.right()
         # y2 = face.bottom()
-        #cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 3)
+        # cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 3)
 
         landmarks = predictor(gray, face)
 
@@ -59,17 +58,23 @@ def side_face_detector(frame):
         pointy3 = landmarks.part(3).y
         pointy33 = landmarks.part(33).y
         pointy13 = landmarks.part(13).y
-        if((pointx29-pointx1)>=3*(pointx15-pointx29)):
-            cv2.putText(frame, "Plese look onto screen", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255,0,0),3)
-        elif((pointx30-pointx2)>=3*(pointx14-pointx30)):
-            cv2.putText(frame,  "Plese look onto screen", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255,0,0),3)
-        elif((pointx33-pointx3)>=3*(pointx13-pointx33)):
-            cv2.putText(frame,  "Plese look onto screen", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255,0,0),3)
-        if(3*(pointx29-pointx1)<=(pointx15-pointx29)):
-            cv2.putText(frame,  "Plese look onto screen", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255,0,0),3)
-        elif(3*(pointx30-pointx2)<=(pointx14-pointx30)):
-            cv2.putText(frame,  "Plese look onto screen", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255,0,0),3)
-        elif(3*(pointx33-pointx3)<=(pointx13-pointx33)):
-            cv2.putText(frame,  "Plese look onto screen", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255,0,0),3)
-            
+        if ((pointx29-pointx1) >= 3*(pointx15-pointx29)):
+            cv2.putText(frame, "Plese look onto screen", (100, 100),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 3)
+        elif ((pointx30-pointx2) >= 3*(pointx14-pointx30)):
+            cv2.putText(frame,  "Plese look onto screen", (100, 100),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 3)
+        elif ((pointx33-pointx3) >= 3*(pointx13-pointx33)):
+            cv2.putText(frame,  "Plese look onto screen", (100, 100),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 3)
+        if (3*(pointx29-pointx1) <= (pointx15-pointx29)):
+            cv2.putText(frame,  "Plese look onto screen", (100, 100),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 3)
+        elif (3*(pointx30-pointx2) <= (pointx14-pointx30)):
+            cv2.putText(frame,  "Plese look onto screen", (100, 100),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 3)
+        elif (3*(pointx33-pointx3) <= (pointx13-pointx33)):
+            cv2.putText(frame,  "Plese look onto screen", (100, 100),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 0), 3)
+
     return frame
