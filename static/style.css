@@ -11,7 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-nav {
+.nav_head {
   background-color: #333;
   overflow: hidden;
   display: flex;
@@ -23,7 +23,7 @@ nav {
   margin-left: 10px;
 }
 
-nav ul {
+.nav_head ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -32,11 +32,11 @@ nav ul {
   margin-left: 50px;
 }
 
-nav li {
+.nav_head li {
   float: left;
 }
 
-nav li a {
+.nav_head li a {
   display: block;
   color: white;
   text-align: center;
@@ -45,7 +45,7 @@ nav li a {
   text-decoration: none;
 }
 
-nav li a:hover {
+.nav_head li a:hover {
   background-color: #111;
 }
 

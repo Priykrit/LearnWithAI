@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
+    <link rel="stylesheet" type="text/css" href="/static/App.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Quizes.css" />
+    <link rel="stylesheet" type="text/css" href="/static/quizpage.css" />
+  </head>
+
+  <body>
+    <nav class="nav_head">
+      <div>
+        <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+      </div>
+      <ul class="Ul_head">
+        <li><a href="/">Home</a></li>
+        <li><a href="/AIbox">AI Box</a></li>
+        <li><a href="/Quizes">Quizes</a></li>
+        <li><a href="/Practice">Practice</a></li>
+        <li><a href="/Courses">Courses</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1>Quiz Taking Page</h1>
+      <form id="quiz-form">
+        <div class="question">
+          <h2>Question 1:</h2>
+          <p>What is the capital of France?</p>
+          <input type="radio" name="q1" value="a" /> a) London<br />
+          <input type="radio" name="q1" value="b" /> b) Paris<br />
+          <input type="radio" name="q1" value="c" /> c) Rome<br />
+          <input type="radio" name="q1" value="c" /> c) Rome<br />
+        </div>
+        <div class="question">
+          <h2>Question 2:</h2>
+          <p>What is the largest continent?</p>
+          <input type="radio" name="q2" value="a" /> a) North America<br />
+          <input type="radio" name="q2" value="b" /> b) Africa<br />
+          <input type="radio" name="q2" value="c" /> c) Asia<br />
+          <input type="radio" name="q2" value="c" /> c) Asia<br />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div id="results"></div>
+    </div>
+
+    <script>
+      const form = document.querySelector("#quiz-form");
+      const results = document.querySelector("#results");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let score = 0;
+        const answers = ["b", "c"];
+
+        let index = 0;
+        for (const question of form.elements) {
+          if (question.type === "radio" && question.checked) {
+            if (question.value === answers[index]) {
+              score++;
+            }
+            index++;
+          }
+        }
+
+        results.innerText = `You scored ${score} out of ${answers.length}!`;
+      });
+    </script>
+  </body>
+</html>
