@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
+    <link rel="stylesheet" type="text/css" href="/static/App.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
+  </head>
+  <body>
+    <nav class="nav_head">
+      <div>
+        <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+      </div>
+      <ul class="Ul_head">
+        <li><a href="/">Home</a></li>
+        <li><a href="/AIbox">AI Box</a></li>
+        <li><a href="/Quizes">Quizes</a></li>
+        <li><a href="/Practice">Practice</a></li>
+        <li><a href="/Courses">Courses</a></li>
+      </ul>
+    </nav>
+    <!-- <div class="grid-container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div> -->
+    <h1>AIML Question Bank</h1>
+    <div id="questions-container"></div>
+    <script>
+      const questions = [
+        { question: "What is your name?", answer: "My name is ChatGPT." },
+        {
+          question: "How old are you?",
+          answer: "I was created in 2021, so I am still quite young.",
+        },
+        {
+          question: "What is your purpose?",
+          answer:
+            "I am here to answer your questions and assist you in any way I can.",
+        },
+        {
+          question: "What is the meaning of life?",
+          answer:
+            "That is a philosophical question that has been debated for centuries. It is up to each individual to find their own meaning in life.",
+        },
+        {
+          question: "Do you have emotions?",
+          answer:
+            "As an AI language model, I do not have emotions in the same way that humans do. However, I am programmed to understand and respond to emotional language.",
+        },
+        {
+          question: "What is the capital of France?",
+          answer: "The capital of France is Paris.",
+        },
+      ];
+
+      const questionsContainer = document.getElementById("questions-container");
+
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement("div");
+        questionElement.className = "question";
+        questionElement.innerHTML = `<div class="question-text">${question.question}</div><div class="answer-text">${question.answer}</div>`;
+        questionElement.addEventListener("click", () => {
+          questionElement.classList.toggle("open");
+        });
+        questionsContainer.appendChild(questionElement);
+      });
+    </script>
+  </body>
+</html>

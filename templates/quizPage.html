@@ -25,6 +25,9 @@
       </ul>
     </nav>
     <div class="container">
+      <h1>Quiz Taking Page with Timer</h1>
+      <p id="timer">Time remaining: 00:00</p>
+
       <h1>Quiz Taking Page</h1>
       <form id="quiz-form">
         <div class="question">
@@ -53,6 +56,25 @@
     <script>
       const form = document.querySelector("#quiz-form");
       const results = document.querySelector("#results");
+      const timer = document.querySelector("#timer");
+      const timeLimit = 120;
+
+      let timeRemaining = timeLimit;
+
+      setInterval(() => {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        const formattedTime = `${minutes.toString().padStart(2, "0")}:${seconds
+          .toString()
+          .padStart(2, "0")}`;
+        timer.innerText = `Time remaining: ${formattedTime}`;
+
+        if (timeRemaining <= 0) {
+          form.submit();
+        }
+
+        timeRemaining--;
+      }, 1000);
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();

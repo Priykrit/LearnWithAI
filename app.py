@@ -92,6 +92,24 @@ def quiz():
     return render_template('quizPage.html', head=img, footer=img2, symbol=img3, head2=img1)
 
 
+@app.route('/Practice')
+def Practice():
+    img = os.path.join(app.config['UPLOAD_FOLDER'], 'head.svg')
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'head2.svg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    return render_template('Practice.html', head=img, footer=img2, symbol=img3, head2=img1)
+
+
+@app.route('/Courses')
+def Courses():
+    img = os.path.join(app.config['UPLOAD_FOLDER'], 'head.svg')
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'head2.svg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    return render_template('Courses.html', head=img, footer=img2, symbol=img3, head2=img1)
+
+
 @app.route('/interview')
 def interview():
     return render_template('interview.html')

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
+    <link rel="stylesheet" type="text/css" href="/static/App.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Courses.css" />
+  </head>
+  <body>
+    <nav class="nav_head">
+      <div>
+        <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+      </div>
+      <ul class="Ul_head">
+        <li><a href="/">Home</a></li>
+        <li><a href="/AIbox">AI Box</a></li>
+        <li><a href="/Quizes">Quizes</a></li>
+        <li><a href="/Practice">Practice</a></li>
+        <li><a href="/Courses">Courses</a></li>
+      </ul>
+    </nav>
+    <h1>AIML Courses</h1>
+    <div id="courses-container"></div>
+    <script>
+      const courses = [
+        { name: "Introduction to AIML", price: 29.99 },
+        { name: "AIML Algorithms", price: 49.99 },
+        { name: "Natural Language Processing", price: 69.99 },
+        { name: "AI Ethics and Governance", price: 89.99 },
+        { name: "Deep Learning", price: 99.99 },
+      ];
+
+      const coursesContainer = document.getElementById("courses-container");
+
+      courses.forEach((course, index) => {
+        const courseElement = document.createElement("div");
+        courseElement.className = "course";
+        courseElement.innerHTML = `<div class="course-name">${
+          course.name
+        }</div><div class="course-price">$${course.price.toFixed(
+          2
+        )}</div><button class="buy-button" data-course="${index}">Buy</button>`;
+        coursesContainer.appendChild(courseElement);
+      });
+
+      const buyButtons = document.getElementsByClassName("buy-button");
+
+      for (let i = 0; i < buyButtons.length; i++) {
+        buyButtons[i].addEventListener("click", () => {
+          const courseIndex = buyButtons[i].getAttribute("data-course");
+          const courseName = courses[courseIndex].name;
+          const coursePrice = courses[courseIndex].price;
+          alert(
+            `You have purchased the course "${courseName}" for $${coursePrice.toFixed(
+              2
+            )}.`
+          );
+        });
+      }
+    </script>
+  </body>
+</html>
