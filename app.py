@@ -65,6 +65,33 @@ def index():
     return render_template('index.html', head=img, footer=img2, symbol=img3, head2=img1)
 
 
+@app.route('/AIbox')
+def AIbox():
+    img = os.path.join(app.config['UPLOAD_FOLDER'], 'head.svg')
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'head2.svg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    return render_template('AIbox.html', head=img, footer=img2, symbol=img3, head2=img1)
+
+
+@app.route('/Quizes')
+def Quizes():
+    img = os.path.join(app.config['UPLOAD_FOLDER'], 'head.svg')
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'head2.svg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    return render_template('Quizes.html', head=img, footer=img2, symbol=img3, head2=img1)
+
+
+@app.route('/quiz')
+def quiz():
+    img = os.path.join(app.config['UPLOAD_FOLDER'], 'head.svg')
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'head2.svg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    return render_template('quizPage.html', head=img, footer=img2, symbol=img3, head2=img1)
+
+
 @app.route('/interview')
 def interview():
     return render_template('interview.html')
