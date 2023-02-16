@@ -1,11 +1,13 @@
 from flask import Flask, make_response, render_template, Response
 import cv2
 import side_face_detection as sfd
+# import pose_detection as ps
 import Drowsyness as dwsy
 from PIL import Image as im
 from flask import Markup
 import os
-
+import mediapipe as mp
+import rebs_estimation as rebe
 
 app = Flask(__name__)
 camera = cv2.VideoCapture(0)
@@ -48,6 +50,51 @@ def drowsy_face():
             break
         else:
             frame1 = dwsy.drowsyness_detector(frame, drowsy_list)
+            # data = im.fromarray(frame)
+            ret, buffer = cv2.imencode('.jpg', frame1)
+            frame2 = buffer.tobytes()
+
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
+
+
+
+def pose():
+    while True:
+
+        # read the camera frame
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            frame1 = ps.pose_estimation(frame)
+            # data = im.fromarray(frame)
+            ret, buffer = cv2.imencode('.jpg', frame1)
+            frame2 = buffer.tobytes()
+
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
+
+
+
+
+mp_drawing = mp.solutions.drawing_utils
+mp_pose = mp.solutions.pose
+counter = 0 
+stage = None
+pose = mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+pose_list = [pose,counter,stage]
+
+
+def pose_rebs():
+    while True:
+
+        # read the camera frame
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            frame1 = rebe.pose_estimation(frame,pose_list)
             # data = im.fromarray(frame)
             ret, buffer = cv2.imencode('.jpg', frame1)
             frame2 = buffer.tobytes()
@@ -115,6 +162,19 @@ def videoforNightstudy():
         drowsy_face(), mimetype='multipart/x-mixed-replace; boundary=frame')
     return frame
 
+
+# @app.route('/videoforPose')
+# def videoforPose():
+#     frame = Response(
+#         pose(), mimetype='multipart/x-mixed-replace; boundary=frame')
+#     return frame
+
+
+@app.route('/videoforPoseRebs')
+def videoforPoseRebs():
+    frame = Response(
+        pose_rebs(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return frame
 
 if __name__ == "__main__":
     app.run(debug=True)
