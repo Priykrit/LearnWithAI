@@ -102,6 +102,14 @@
   margin: 10px;
 }
 
+.head_trivia {
+  background: linear-gradient(230deg, #06beb6, #48b1bf);
+  color: white;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
 .correct {
   background-color: #2f922f;
 }

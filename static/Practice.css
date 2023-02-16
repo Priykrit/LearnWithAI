@@ -21,7 +21,7 @@ body {
 }
 
 h1 {
-  background-color: #00bcd4;
+  background: linear-gradient(230deg, #06beb6, #48b1bf);
   color: white;
   margin: 0;
   padding: 20px;

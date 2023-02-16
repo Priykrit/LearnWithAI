@@ -103,11 +103,14 @@ def Practice():
 
 @app.route('/Courses')
 def Courses():
-    img = os.path.join(app.config['UPLOAD_FOLDER'], 'head.svg')
-    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'head2.svg')
-    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
-    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
-    return render_template('Courses.html', head=img, footer=img2, symbol=img3, head2=img1)
+    img = os.path.join(app.config['UPLOAD_FOLDER'], 'c1.webp')
+    img0 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'c2.jpg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'c3.jpg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'c4.png')
+    img4 = os.path.join(app.config['UPLOAD_FOLDER'], 'c5.png')
+    img5 = os.path.join(app.config['UPLOAD_FOLDER'], 'c6.png')
+    return render_template('Courses.html', symbol=img0, c1=img, c2=img2, c3=img3, c4=img1, c5=img4, c6=img5)
 
 
 @app.route('/interview')

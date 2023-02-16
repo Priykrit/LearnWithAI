@@ -13,3 +13,11 @@
   height: 400px;
   width: 400px;
 }
+
+.head_aibox {
+  background: linear-gradient(230deg, #06beb6, #48b1bf);
+  color: white;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
