@@ -9,30 +9,45 @@
     <link rel="stylesheet" type="text/css" href="/static/Quizes.css" />
     <link rel="stylesheet" type="text/css" href="/static/App.css" />
   </head>
+  <style>
+    .quiz-page-wrapper {
+      background-image: url("/static/pics/AIBox_bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 1200px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0px;
+      padding: 100px;
+    }
+  </style>
   <body>
     <nav class="nav_head">
       <div>
         <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
       </div>
       <ul class="Ul_head">
-        <li><a href="/">Home</a></li>
-        <li><a href="/AIbox">AI Box</a></li>
-        <li><a href="/Quizes">Quizes</a></li>
-        <li><a href="/Practice">Practice</a></li>
-        <li><a href="/Courses">Courses</a></li>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/AIbox" class="nav-link">AI Box</a></li>
+        <li><a href="/Quizes" class="nav-link">Quizes</a></li>
+        <li><a href="/Practice" class="nav-link">Practice</a></li>
+        <li><a href="/Courses" class="nav-link">Courses</a></li>
+        <li><a href="/nightstudy" class="nav-link">Night Study</a></li>
+        <li><a href="/interview" class="nav-link">Job interview</a></li>
       </ul>
     </nav>
+    <h1 class="head_trivia">TRIVIA</h1>
     <div class="quiz-page-wrapper">
-      <h1 class="head_trivia">TRIVIA</h1>
       <div class="row">
         <div class="col-md-6 col-lg-3 cutomclasshetvi">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Sorting Algorithms</h5>
+              <h5 class="card-title">Supervised learning</h5>
               <p class="card-text">
-                Practice Sorting Algorithms MCQs here on VLearn which will help
-                you to clear your concepts and also to prepare for technical
-                rounds, interviews, competitive exams etc.
+                In supervised learning, the algorithm is trained on labeled
+                data, meaning the data is already labeled with the correct
+                output. The goal is for the algorithm to learn to make accurate
+                predictions on new, unseen data.
               </p>
               <a href="quiz">
                 <button class="btn btn-primary btn-hetvi">Take Test</button>
@@ -44,11 +59,12 @@
         <div class="col-md-6 col-lg-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Stacks</h5>
+              <h5 class="card-title">Unsupervised learning:</h5>
               <p class="card-text">
-                Practice Stacks MCQs here on VLearn which will help you to clear
-                your concepts and also to prepare for technical rounds,
-                interviews, competitive exams etc.
+                In unsupervised learning, the algorithm is trained on unlabeled
+                data, meaning the data has no predetermined output. The goal is
+                for the algorithm to identify patterns or structures in the
+                data.
               </p>
               <a href="quiz">
                 <button class="btn btn-primary btn-hetvi">Take Test</button>
@@ -60,11 +76,12 @@
         <div class="col-md-6 col-lg-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Queues</h5>
+              <h5 class="card-title">Reinforcement learning:</h5>
               <p class="card-text">
-                Practice Queues MCQs here on VLearn which will help you to clear
-                your concepts and also to prepare for technical rounds,
-                interviews, competitive exams etc.
+                n reinforcement learning, the algorithm learns through trial and
+                error by receiving rewards or punishments for its actions. The
+                goal is for the algorithm to learn to make decisions that
+                maximize its reward.
               </p>
               <a href="quiz">
                 <button class="btn btn-primary btn-hetvi">Take Test</button>
@@ -76,11 +93,12 @@
         <div class="col-md-6 col-lg-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Trees</h5>
+              <h5 class="card-title">Deep learning:</h5>
               <p class="card-text">
-                Practice Trees MCQs here on VLearn which will help you to clear
-                your concepts and also to prepare for technical rounds,
-                interviews, competitive exams etc.
+                Deep learning is a subset of machine learning that involves
+                training neural networks with many layers. Deep learning has
+                shown great success in tasks such as image and speech
+                recognition.
               </p>
               <a href="quiz">
                 <button class="btn btn-primary btn-hetvi">Take Test</button>
@@ -94,11 +112,12 @@
         <div class="col-md-6 col-lg-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Graph</h5>
+              <h5 class="card-title">Natural language processing:</h5>
               <p class="card-text">
-                Practice Graph MCQs here on VLearn which will help you to clear
-                your concepts and also to prepare for technical rounds,
-                interviews, competitive exams etc.
+                Natural language processing (NLP) is the field of study that
+                focuses on the interaction between computers and humans using
+                natural language. NLP involves many machine learning techniques,
+                such as sentiment analysis and language translation.
               </p>
               <a href="quiz">
                 <button class="btn btn-primary btn-hetvi">Take Test</button>
@@ -110,11 +129,12 @@
         <div class="col-md-6 col-lg-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Hash</h5>
+              <h5 class="card-title">Recommender systems:</h5>
               <p class="card-text">
-                Practice Hash MCQs here on VLearn which will help you to clear
-                your concepts and also to prepare for technical rounds,
-                interviews, competitive exams etc.
+                Recommender systems are machine learning algorithms that make
+                personalized recommendations to users based on their past
+                behavior or preferences. Recommender systems are widely used in
+                applications such as e-commerce and entertainment.
               </p>
               <a href="quiz">
                 <button class="btn btn-primary btn-hetvi">Take Test</button>
@@ -126,11 +146,13 @@
         <div class="col-md-6 col-lg-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Searching Algorithms</h5>
+              <h5 class="card-title">Transfer learning</h5>
               <p class="card-text">
-                Practice Searching Algorithms MCQs here on VLearn which will
-                help you to clear your concepts and also to prepare for
-                technical rounds, interviews, competitive exams etc.
+                Transfer learning is a technique that involves using a
+                pre-trained model to perform a new task. The pre-trained model
+                has already learned patterns and features from a large dataset,
+                and this knowledge can be transferred to a new dataset, allowing
+                for faster and more efficient training.
               </p>
               <a href="quiz">
                 <button class="btn btn-primary btn-hetvi">Take Test</button>
@@ -142,11 +164,14 @@
         <div class="col-md-6 col-lg-3">
           <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Miscellaneuous</h5>
+              <h5 class="card-title">Time series analysis</h5>
               <p class="card-text">
-                Practice Miscellaneuous MCQs here on VLearn which will help you
-                to clear your concepts and also to prepare for technical rounds,
-                interviews, competitive exams etc.
+                Time series analysis is a type of machine learning that is used
+                to analyze data that changes over time. Time series analysis can
+                be used to make predictions or detect patterns in data such as
+                stock prices, weather patterns, and medical data. It involves
+                techniques such as autoregression, moving averages, and
+                exponential smoothing.
               </p>
               <a href="quiz">
                 <button class="btn btn-primary btn-hetvi">Take Test</button>
@@ -157,5 +182,19 @@
         </div>
       </div>
     </div>
+    <footer>
+      <div class="footer-content">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you!</p>
+        <ul class="contact-info">
+          <li><i class="fas fa-envelope"></i> info@example.com</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i> 123 Main Street, Anytown, USA
+            12345
+          </li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>

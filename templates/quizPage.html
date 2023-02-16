@@ -10,68 +10,103 @@
     <link rel="stylesheet" type="text/css" href="/static/Quizes.css" />
     <link rel="stylesheet" type="text/css" href="/static/quizpage.css" />
   </head>
-
+  <style>
+    .container1 {
+      background-image: url("/static/pics/AIBox_bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 1200px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0px;
+      padding: 100px;
+    }
+  </style>
   <body>
     <nav class="nav_head">
       <div>
         <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
       </div>
       <ul class="Ul_head">
-        <li><a href="/">Home</a></li>
-        <li><a href="/AIbox">AI Box</a></li>
-        <li><a href="/Quizes">Quizes</a></li>
-        <li><a href="/Practice">Practice</a></li>
-        <li><a href="/Courses">Courses</a></li>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/AIbox" class="nav-link">AI Box</a></li>
+        <li><a href="/Quizes" class="nav-link">Quizes</a></li>
+        <li><a href="/Practice" class="nav-link">Practice</a></li>
+        <li><a href="/Courses" class="nav-link">Courses</a></li>
+        <li><a href="/nightstudy" class="nav-link">Night Study</a></li>
+        <li><a href="/interview" class="nav-link">Job interview</a></li>
       </ul>
     </nav>
-    <div class="container">
-      <h1>Quiz Taking Page with Timer</h1>
-      <p id="timer">Time remaining: 00:00</p>
+    <div class="container1">
+      <div class="container">
+        <h1>Quiz Taking Page with Timer</h1>
+        <p id="timer">Time remaining: 00:00</p>
+        <h1>Quiz Taking Page</h1>
+        <form id="quiz-form">
+          <div class="head1">
+            <div class="question">
+              <h2>Question 1:</h2>
+              <p>What is the capital of France?</p>
+              <div class="number">
+                <input type="radio" name="q1" value="a" /> a) London<br />
+                <input type="radio" name="q1" value="b" /> b) Paris<br />
+                <input type="radio" name="q1" value="c" /> c) Rome<br />
+                <input type="radio" name="q1" value="c" /> c) Rome<br />
+              </div>
+            </div>
+            <div class="question">
+              <h2>Question 2:</h2>
+              <p>What is the largest continent?</p>
+              <div class="number">
+                <input type="radio" name="q2" value="a" /> a) North America<br />
+                <input type="radio" name="q2" value="b" /> b) Africa<br />
+                <input type="radio" name="q2" value="c" /> c) Asia<br />
+                <input type="radio" name="q2" value="c" /> c) Asia<br />
+              </div>
+            </div>
+            <div class="question">
+              <h2>Question 3:</h2>
+              <p>What is the largest continent?</p>
+              <div class="number">
+                <input type="radio" name="q2" value="a" /> a) North America<br />
+                <input type="radio" name="q2" value="b" /> b) Africa<br />
+                <input type="radio" name="q2" value="c" /> c) Asia<br />
+                <input type="radio" name="q2" value="c" /> c) Asia<br />
+              </div>
+            </div>
+            <div class="question">
+              <h2>Question 4:</h2>
+              <p>What is the largest continent?</p>
+              <div class="number">
+                <input type="radio" name="q2" value="a" /> a) North America<br />
+                <input type="radio" name="q2" value="b" /> b) Africa<br />
+                <input type="radio" name="q2" value="c" /> c) Asia<br />
+                <input type="radio" name="q2" value="c" /> c) Asia<br />
+              </div>
+            </div>
+          </div>
+          <button type="submit">Submit</button>
+          &nbsp; &nbsp; &nbsp;
+          <button type="reset" onclick="location.reload()">Restart</button>
+        </form>
 
-      <h1>Quiz Taking Page</h1>
-      <form id="quiz-form">
-        <div class="head1">
-          <div class="question">
-            <h2>Question 1:</h2>
-            <p>What is the capital of France?</p>
-            <input type="radio" name="q1" value="a" /> a) London<br />
-            <input type="radio" name="q1" value="b" /> b) Paris<br />
-            <input type="radio" name="q1" value="c" /> c) Rome<br />
-            <input type="radio" name="q1" value="c" /> c) Rome<br />
-          </div>
-          <div class="question">
-            <h2>Question 2:</h2>
-            <p>What is the largest continent?</p>
-            <input type="radio" name="q2" value="a" /> a) North America<br />
-            <input type="radio" name="q2" value="b" /> b) Africa<br />
-            <input type="radio" name="q2" value="c" /> c) Asia<br />
-            <input type="radio" name="q2" value="c" /> c) Asia<br />
-          </div>
-          <div class="question">
-            <h2>Question 3:</h2>
-            <p>What is the largest continent?</p>
-            <input type="radio" name="q2" value="a" /> a) North America<br />
-            <input type="radio" name="q2" value="b" /> b) Africa<br />
-            <input type="radio" name="q2" value="c" /> c) Asia<br />
-            <input type="radio" name="q2" value="c" /> c) Asia<br />
-          </div>
-          <div class="question">
-            <h2>Question 4:</h2>
-            <p>What is the largest continent?</p>
-            <input type="radio" name="q2" value="a" /> a) North America<br />
-            <input type="radio" name="q2" value="b" /> b) Africa<br />
-            <input type="radio" name="q2" value="c" /> c) Asia<br />
-            <input type="radio" name="q2" value="c" /> c) Asia<br />
-          </div>
-        </div>
-        <button type="submit">Submit</button>
-        &nbsp; &nbsp; &nbsp;
-        <button type="reset" onclick="location.reload()">Restart</button>
-      </form>
-
-      <div id="results"></div>
+        <div id="results"></div>
+      </div>
     </div>
-
+    <footer>
+      <div class="footer-content">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you!</p>
+        <ul class="contact-info">
+          <li><i class="fas fa-envelope"></i> info@example.com</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i> 123 Main Street, Anytown, USA
+            12345
+          </li>
+        </ul>
+      </div>
+    </footer>
     <script>
       const form = document.querySelector("#quiz-form");
       const results = document.querySelector("#results");

@@ -9,54 +9,178 @@
     <link rel="stylesheet" type="text/css" href="/static/App.css" />
     <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
   </head>
+  <style>
+    #questions-container {
+      background-image: url("/static/pics/AIBox_bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0px;
+      padding: 100px;
+    }
+  </style>
   <body>
     <nav class="nav_head">
       <div>
         <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
       </div>
       <ul class="Ul_head">
-        <li><a href="/">Home</a></li>
-        <li><a href="/AIbox">AI Box</a></li>
-        <li><a href="/Quizes">Quizes</a></li>
-        <li><a href="/Practice">Practice</a></li>
-        <li><a href="/Courses">Courses</a></li>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/AIbox" class="nav-link">AI Box</a></li>
+        <li><a href="/Quizes" class="nav-link">Quizes</a></li>
+        <li><a href="/Practice" class="nav-link">Practice</a></li>
+        <li><a href="/Courses" class="nav-link">Courses</a></li>
+        <li><a href="/nightstudy" class="nav-link">Night Study</a></li>
+        <li><a href="/interview" class="nav-link">Job interview</a></li>
       </ul>
     </nav>
-    <!-- <div class="grid-container">
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-    </div> -->
     <h1>AIML Question Bank</h1>
     <div id="questions-container"></div>
+    <footer>
+      <div class="footer-content">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you!</p>
+        <ul class="contact-info">
+          <li><i class="fas fa-envelope"></i> info@example.com</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i> 123 Main Street, Anytown, USA
+            12345
+          </li>
+        </ul>
+      </div>
+    </footer>
     <script>
       const questions = [
-        { question: "What is your name?", answer: "My name is ChatGPT." },
         {
-          question: "How old are you?",
-          answer: "I was created in 2021, so I am still quite young.",
-        },
-        {
-          question: "What is your purpose?",
+          question: "What do you understand by Artificial Intelligence?",
           answer:
-            "I am here to answer your questions and assist you in any way I can.",
+            "Artificial intelligence is computer science technology that emphasizes creating intelligent machine that can mimic human behavior. Here Intelligent machines can be defined as the machine that can behave like a human, think like a human, and also capable of decision making. It is made up of two words, 'Artificial' and 'Intelligence,' which means the 'man-made thinking ability.'With artificial intelligence, we do not need to pre-program the machine to perform a task; instead, we can create a machine with the programmed algorithms, and it can work on its own.",
         },
         {
-          question: "What is the meaning of life?",
+          question: "Why do we need Artificial Intelligence?",
           answer:
-            "That is a philosophical question that has been debated for centuries. It is up to each individual to find their own meaning in life.",
+            "The goal of Artificial intelligence is to create intelligent machines that can mimic human behavior. We need AI for today's world to solve complex problems, make our lives more smoothly by automating the routine work, saving the manpower, and to perform many more other tasks.",
         },
         {
-          question: "Do you have emotions?",
+          question: "Give some real-world applications of AI.?",
           answer:
-            "As an AI language model, I do not have emotions in the same way that humans do. However, I am programmed to understand and respond to emotional language.",
+            "Google Search Engine: When we start writing something on the google search engine, we immediately get the relevant recommendations from google, and this is because of different AI technologies. Ridesharing Applications: Different ride-sharing applications such as Uber uses AI and machine learning to determine the type of ride, minimize the time once the car is hailed by the user, price of the ride, etc. Spam Filters in Email: The AI is also used for email spam filtering so that you can get the important and relevant emails only in your inbox. As per the studies, Gmail successfully filters 99.9% of spam mails.  Social Networking: Different social networking sites such as Facebook, Instagram, Pinterest, etc., use the AI technology for different purposes such as face recognition and friend suggestions, when you upload a photograph on Facebook, understanding the contextual meaning of an emoji in Instagram, and so on.     Product recommendations: When we search for a product on Amazon, we get the recommendation for similar products, and this is because of different ML algorithms. Similarly, on Netflix, we get personalized recommendations for movies and web series..",
         },
         {
-          question: "What is the capital of France?",
-          answer: "The capital of France is Paris.",
+          question: "What are the types of AI??",
+          answer: `
+                      My name is ChatGPT.
+                      Artificial intelligence can be divided into different types on the basis of capabilities and functionalities.
+
+            Based on Capabilities:
+
+            Weak AI or Narrow AI: Weak AI is capable of performing some dedicated tasks with intelligence. Siri is an example of Weak AI.
+            General AI: The intelligent machines that can perform any intellectual task with efficiency as a human.
+            Strong AI: It is the hypothetical concept that involves the machine that will be better than humans and will surpass human intelligence.
+            Based on Functionalities:
+
+            Reactive Machines: Purely reactive machines are the basic types of AI. These focus on the present actions and cannot store the previous actions. Example: Deep Blue.
+            Limited Memory: As its name suggests, it can store the past data or experience for the limited duration. The self-driving car is an example of such AI types.
+            Theory of Mind: It is the advanced AI that is capable of understanding human emotions, people, etc., in the real world.
+            Self-Awareness: Self Awareness AI is the future of Artificial Intelligence that will have their own consciousness, emotions, similar to humans. Read More.
+
+                     `,
+        },
+        {
+          question: "What are the different domains/Subsets of AI?",
+          answer: `
+                    Machine Learning can be mainly divided into three types:
+
+      Supervised Learning: Supervised learning is a type of Machine learning in which the machine needs external supervision to learn from data. The supervised learning models are trained using the labeled dataset. Regression and Classification are the two main problems that can be solved with Supervised Machine Learning.
+      Unsupervised Learning: It is a type of machine learning in which the machine does not need any external supervision to learn from the data, hence called unsupervised learning. The unsupervised models can be trained using the unlabelled dataset. These are used to solve the Association and Clustering problems.
+      Reinforcement Learning: In Reinforcement learning, an agent interacts with its environment by producing actions, and learn with the help of feedback. The feedback is given to the agent in the form of rewards, such as for each good action, he gets a positive reward, and for each bad action, he gets a negative reward. There is no supervision provided to the agent. Q-Learning algorithm is used in reinforcement learning.
+
+                    `,
+        },
+        {
+          question: "Explain the term 'Q-Learning.'",
+          answer: `
+          -learning is a popular algorithm used in reinforcement learning. It is based on the Bellman equation. In this algorithm, the agent tries to learn the policies that can provide the best actions to perform for maximining the rewards under particular circumstances. The agent learns these optimal policies from past experiences.
+In Q-learning, the Q is used to represent the quality of the actions at each state, and the goal of the agent is to maximize the value of Q.
+          `,
+        },
+        {
+          question: "What is Deep Learning, and how is it used in real-world?",
+          answer: `
+            Deep learning is a subset of Machine learning that mimics the working of the human brain. It is inspired by the human brain cells, called neurons, and works on the concept of neural networks to solve complex real-world problems. It is also known as the deep neural network or deep neural learning.
+          `,
+        },
+        {
+          question: "Which programming language is used for AI?",
+          answer: `
+          Below are the top five programming languages that are widely used for the development of Artificial Intelligence:
+
+Python
+Java
+Lisp
+R
+Prolog
+Among the above five languages, Python is the most used language for AI development due to its simplicity and availability of lots of libraries, such as Numpy, Pandas, etc.
+
+
+          `,
+        },
+        {
+          question: "What is Markov's Decision process?",
+          answer: `
+          he solution for a reinforcement learning problem can be achieved using the Markov decision process or MDP. Hence, MDP is used to formalize the RL problem. It can be said as the mathematical approach to solve a reinforcement learning problem. The main aim of this process is to gain maximum positive rewards by choosing the optimum policy.
+  MDP has four elements, which are:
+
+A set of finite states S
+A set of finite actions A
+Rewards
+Policy Pa
+In this process, the agent performs an action A to take a transition from state S1 to S2 or from the start state to the end state, and while doing these actions, the agent gets some rewards. The series of actions taken by the agent can be defined as the policy.
+          `,
+        },
+        {
+          question: "Why do we need Artificial Intelligence?",
+          answer:
+            "The goal of Artificial intelligence is to create intelligent machines that can mimic human behavior. We need AI for today's world to solve complex problems, make our lives more smoothly by automating the routine work, saving the manpower, and to perform many more other tasks.",
+        },
+        {
+          question: "Give some real-world applications of AI.?",
+          answer:
+            "Google Search Engine: When we start writing something on the google search engine, we immediately get the relevant recommendations from google, and this is because of different AI technologies. Ridesharing Applications: Different ride-sharing applications such as Uber uses AI and machine learning to determine the type of ride, minimize the time once the car is hailed by the user, price of the ride, etc. Spam Filters in Email: The AI is also used for email spam filtering so that you can get the important and relevant emails only in your inbox. As per the studies, Gmail successfully filters 99.9% of spam mails.  Social Networking: Different social networking sites such as Facebook, Instagram, Pinterest, etc., use the AI technology for different purposes such as face recognition and friend suggestions, when you upload a photograph on Facebook, understanding the contextual meaning of an emoji in Instagram, and so on.     Product recommendations: When we search for a product on Amazon, we get the recommendation for similar products, and this is because of different ML algorithms. Similarly, on Netflix, we get personalized recommendations for movies and web series..",
+        },
+        {
+          question: "What are the types of AI??",
+          answer: `
+                      My name is ChatGPT.
+                      Artificial intelligence can be divided into different types on the basis of capabilities and functionalities.
+
+            Based on Capabilities:
+
+            Weak AI or Narrow AI: Weak AI is capable of performing some dedicated tasks with intelligence. Siri is an example of Weak AI.
+            General AI: The intelligent machines that can perform any intellectual task with efficiency as a human.
+            Strong AI: It is the hypothetical concept that involves the machine that will be better than humans and will surpass human intelligence.
+            Based on Functionalities:
+
+            Reactive Machines: Purely reactive machines are the basic types of AI. These focus on the present actions and cannot store the previous actions. Example: Deep Blue.
+            Limited Memory: As its name suggests, it can store the past data or experience for the limited duration. The self-driving car is an example of such AI types.
+            Theory of Mind: It is the advanced AI that is capable of understanding human emotions, people, etc., in the real world.
+            Self-Awareness: Self Awareness AI is the future of Artificial Intelligence that will have their own consciousness, emotions, similar to humans. Read More.
+
+                     `,
+        },
+        {
+          question: "What are the different domains/Subsets of AI?",
+          answer: `
+                    Machine Learning can be mainly divided into three types:
+
+      Supervised Learning: Supervised learning is a type of Machine learning in which the machine needs external supervision to learn from data. The supervised learning models are trained using the labeled dataset. Regression and Classification are the two main problems that can be solved with Supervised Machine Learning.
+      Unsupervised Learning: It is a type of machine learning in which the machine does not need any external supervision to learn from the data, hence called unsupervised learning. The unsupervised models can be trained using the unlabelled dataset. These are used to solve the Association and Clustering problems.
+      Reinforcement Learning: In Reinforcement learning, an agent interacts with its environment by producing actions, and learn with the help of feedback. The feedback is given to the agent in the form of rewards, such as for each good action, he gets a positive reward, and for each bad action, he gets a negative reward. There is no supervision provided to the agent. Q-Learning algorithm is used in reinforcement learning.
+
+                    `,
         },
       ];
 

@@ -16,11 +16,11 @@ body {
   overflow: hidden;
   display: flex;
   height: 60px;
-  padding-top: 10px;
 }
+
 .nav_symbol {
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 17px;
+  margin-left: 15px;
 }
 
 .nav_head ul {
@@ -34,6 +34,7 @@ body {
 
 .nav_head li {
   float: left;
+  /* line-height: 0px; */
 }
 
 .nav_head li a {
@@ -47,8 +48,13 @@ body {
 
 .nav_head li a:hover {
   background-color: #111;
+  height: 100%;
 }
 
+.active {
+  background-color: #111;
+  height: 100%;
+}
 .nav_symbol {
   height: 30px;
 }
@@ -88,14 +94,16 @@ h5 {
 h6 {
   font-size: 16px;
 }
-
+.nav_head.active {
+  background-color: #ffa500;
+}
 p,
 li,
 blockquote,
 label {
   font-size: 14px;
   letter-spacing: 0;
-  line-height: 22px;
+  /* line-height: 22px; */
   color: #000000;
   margin-bottom: 0;
 }
@@ -930,8 +938,8 @@ a:hover {
   }
 }
 
-.banner .content-block h1,
-.banner .content-block h5 {
+.content-block h1,
+.content-block h5 {
   color: #fff;
 }
 
@@ -946,7 +954,7 @@ a:hover {
   margin-left: -60px;
 }
 
-.banner .content-block h5 {
+.content-block h5 {
   margin-left: 120px;
   font-size: 2em;
   font-weight: 800;
@@ -2272,6 +2280,44 @@ a:hover {
     margin-bottom: 40px;
   }
 }
+footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+  /* display: flex; */
+}
+
+.footer-content {
+  margin-left: 10%;
+  /* display: flex; */
+  /* gap: 100px; */
+}
+
+.footer-content h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.footer-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  display: flex;
+  gap: 100px;
+}
+
+.contact-info li {
+  list-style: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.contact-info li i {
+  margin-right: 10px;
+  color: #333;
+}
 
 .user-login .block .content .title-text {
   margin-bottom: 35px;
@@ -2385,7 +2431,9 @@ a:hover {
 
 .img-fluid {
   margin: 80px;
-  margin: 200px;
+  margin: 180px;
+  height: 500px;
+  width: 350px;
 }
 
 .chatbot {

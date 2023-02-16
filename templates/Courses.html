@@ -10,22 +10,50 @@
     <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
     <link rel="stylesheet" type="text/css" href="/static/Courses.css" />
   </head>
+  <style>
+    #courses-container {
+      background-image: url("/static/pics/AIBox_bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 1200px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0px;
+      padding: 100px;
+    }
+  </style>
   <body>
     <nav class="nav_head">
       <div>
         <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
       </div>
       <ul class="Ul_head">
-        <li><a href="/">Home</a></li>
-        <li><a href="/AIbox">AI Box</a></li>
-        <li><a href="/Quizes">Quizes</a></li>
-        <li><a href="/Practice">Practice</a></li>
-        <li><a href="/Courses">Courses</a></li>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/AIbox" class="nav-link">AI Box</a></li>
+        <li><a href="/Quizes" class="nav-link">Quizes</a></li>
+        <li><a href="/Practice" class="nav-link">Practice</a></li>
+        <li><a href="/Courses" class="nav-link">Courses</a></li>
+        <li><a href="/nightstudy" class="nav-link">Night Study</a></li>
+        <li><a href="/interview" class="nav-link">Job interview</a></li>
       </ul>
     </nav>
     <h1>AIML Courses</h1>
     <div id="courses-container"></div>
     <!-- <h1>hello</h1> -->
+    <footer>
+      <div class="footer-content">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you!</p>
+        <ul class="contact-info">
+          <li><i class="fas fa-envelope"></i> info@example.com</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i> 123 Main Street, Anytown, USA
+            12345
+          </li>
+        </ul>
+      </div>
+    </footer>
     <script>
       const courses = [
         { name: "Introduction to AIML", price: 29.99, img: "{{c1}}" },
