@@ -8,6 +8,7 @@ from flask import Markup
 import os
 import mediapipe as mp
 import rebs_estimation as rebe
+import aug
 
 app = Flask(__name__)
 camera = cv2.VideoCapture(0)
@@ -59,21 +60,21 @@ def drowsy_face():
 
 
 
-def pose():
-    while True:
+# def pose():
+#     while True:
 
-        # read the camera frame
-        success, frame = camera.read()
-        if not success:
-            break
-        else:
-            frame1 = ps.pose_estimation(frame)
-            # data = im.fromarray(frame)
-            ret, buffer = cv2.imencode('.jpg', frame1)
-            frame2 = buffer.tobytes()
+#         # read the camera frame
+#         success, frame = camera.read()
+#         if not success:
+#             break
+#         else:
+#             frame1 = ps.pose_estimation(frame)
+#             # data = im.fromarray(frame)
+#             ret, buffer = cv2.imencode('.jpg', frame1)
+#             frame2 = buffer.tobytes()
 
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
+#             yield (b'--frame\r\n'
+#                    b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
 
 
 
@@ -95,6 +96,47 @@ def pose_rebs():
             break
         else:
             frame1 = rebe.pose_estimation(frame,pose_list)
+            # data = im.fromarray(frame)
+            ret, buffer = cv2.imencode('.jpg', frame1)
+            frame2 = buffer.tobytes()
+
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
+
+
+
+
+
+
+MIN_MATCHES = 20
+detector = cv2.ORB_create(nfeatures=5000)
+
+FLANN_INDEX_KDTREE = 1
+index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 5)
+search_params = dict(checks=100)
+flann = cv2.FlannBasedMatcher(index_params,search_params)
+augment_list2 = [MIN_MATCHES,detector,FLANN_INDEX_KDTREE,index_params,search_params,flann]
+
+input_image = cv2.imread('C:\\Coding\\python_programming\\Projects\\Augmentation\\vk.jpg')
+augment_image = cv2.imread('C:\\Coding\\python_programming\\Projects\\Augmentation\\mask.jpg')
+
+input_image = cv2.resize(input_image, (300,400),interpolation=cv2.INTER_AREA)
+augment_image = cv2.resize(augment_image, (300,400))
+gray_image = cv2.cvtColor(input_image, cv2.COLOR_BGR2GRAY)
+	# find the keypoints with ORB
+keypoints, descriptors = detector.detectAndCompute(gray_image, None)
+augment_list = [gray_image,augment_image,keypoints, descriptors]
+
+
+def aug_mask():
+    while True:
+
+        # read the camera frame
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            frame1 = aug.augment_detector(frame,augment_list,augment_list2)
             # data = im.fromarray(frame)
             ret, buffer = cv2.imencode('.jpg', frame1)
             frame2 = buffer.tobytes()
@@ -174,6 +216,12 @@ def videoforNightstudy():
 def videoforPoseRebs():
     frame = Response(
         pose_rebs(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return frame
+
+@app.route('/videoforAug')
+def videoforAug():
+    frame = Response(
+        aug_mask(), mimetype='multipart/x-mixed-replace; boundary=frame')
     return frame
 
 if __name__ == "__main__":
