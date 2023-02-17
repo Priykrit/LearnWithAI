@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
+    <link rel="stylesheet" type="text/css" href="/static/App.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Courses.css" />
+  </head>
+  <style>
+    #courses-container {
+      background-image: url("/static/pics/AIBox_bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 1200px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0px;
+      padding: 100px;
+    }
+  </style>
+  <body>
+    <nav class="nav_head">
+      <div>
+        <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+      </div>
+      <ul class="Ul_head">
+        <li><a href="/" class="nav-link">HOME</a></li>
+        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
+        <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
+        <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
+        <li><a href="/Courses" class="nav-link">COURSES</a></li>
+        <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
+        <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
+        <li><a href="/interview" class="nav-link">ABOUT US</a></li>
+      </ul>
+    </nav>
+    <!-- <h1>AIML Courses</h1> -->
+    <div class="bolcontainer">
+      <svg viewBox="0 0 960 300" class="svg_heading">
+        <symbol id="s-text">
+          <text text-anchor="middle" x="50%" y="80%">AIML Courses</text>
+        </symbol>
+        <g class="g-ants">
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+        </g>
+      </svg>
+    </div>
+    <div id="courses-container"></div>
+    <section class="section cta-subscribe" id="contact">
+      <div class="container">
+        <div class="row bg-elipse-red">
+          <div class="col-lg-4">
+            <div class="image">
+              <img class="phone-thumb" src="{{footer}}" alt="iphone-app" />
+            </div>
+          </div>
+          <div class="col-lg-8 align-self-center">
+            <div class="content">
+              <div class="mb-4">
+                <h2>Subscribe To Our Newsletter</h2>
+              </div>
+              <div class="description">
+                <p>
+                  Follow our socials and subscribe to our newsletter to stay
+                  updated and fetch every information in the world.
+                </p>
+              </div>
+              <form action="#">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="copyright1__">
+      <span class="copyright2__">
+        @copyright this website and AI model are made by team StarBug 2023
+      </span>
+    </div>
+    <script>
+      const courses = [
+        { name: "Introduction to AIML", price: 29.99, img: "{{c1}}" },
+        { name: "AIML Algorithms", price: 49.99, img: "{{c2}}" },
+        { name: "Natural Language Processing", price: 69.99, img: "{{c3}}" },
+        { name: "AI Ethics and Governance", price: 89.99, img: "{{c4}}" },
+        { name: "Deep Learning", price: 99.99, img: "{{c5}}" },
+        { name: "Deep Learning", price: 99.99, img: "{{c6}}" },
+      ];
+
+      const coursesContainer = document.getElementById("courses-container");
+
+      courses.forEach((course, index) => {
+        const courseElement = document.createElement("div");
+        courseElement.className = "course";
+        courseElement.innerHTML = `
+        <img class="course_img" src="${course.img}" alt="iphone-app" />
+        <div class="course-name">${
+          course.name
+        }</div><div class="course-price">$${course.price.toFixed(
+          2
+        )}</div><button class="buy-button" data-course="${index}">Buy</button>`;
+        coursesContainer.appendChild(courseElement);
+      });
+
+      const buyButtons = document.getElementsByClassName("buy-button");
+
+      for (let i = 0; i < buyButtons.length; i++) {
+        buyButtons[i].addEventListener("click", () => {
+          const courseIndex = buyButtons[i].getAttribute("data-course");
+          const courseName = courses[courseIndex].name;
+          const coursePrice = courses[courseIndex].price;
+          alert(
+            `You have purchased the course "${courseName}" for $${coursePrice.toFixed(
+              2
+            )}.`
+          );
+        });
+      }
+    </script>
+  </body>
+</html>

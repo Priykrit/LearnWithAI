@@ -1,4 +1,10 @@
-.grid-container {
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*  */
+
+/*  */
+
+.grid-containerAI {
   display: grid;
   grid-template-columns: repeat(3, 0.2fr); /* creates 4 columns */
   grid-template-rows: repeat(2, 0.2fr); /* creates 2 rows */
@@ -12,4 +18,67 @@
   border: 1px solid #ddd;
   height: 400px;
   width: 400px;
+}
+
+.head_aibox {
+  background: linear-gradient(230deg, #06beb6, #48b1bf);
+  color: white;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.footer-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.grid-containerAI > div {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font: bold;
+  font-size: 32px;
+  /* font-size: up; */
+}
+
+.grid-containerAI > div img {
+  padding-left: 30%;
+  height: 220px;
+  width: 220px;
+}
+
+.ai_ {
+  margin-top: 10%;
+  margin: auto;
+  background-color: #06beb6;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.ai_:hover {
+  background-color: #058079;
+  cursor: pointer;
+}
+
+.contact-info li {
+  list-style: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.contact-info li i {
+  margin-right: 10px;
+  color: #333;
 }

@@ -101,6 +101,40 @@
   cursor: pointer;
   margin: 10px;
 }
+footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.footer-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-info li {
+  list-style: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.contact-info li i {
+  margin-right: 10px;
+  color: #333;
+}
+
+.head_trivia {
+  background: linear-gradient(230deg, #06beb6, #48b1bf);
+  color: white;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
 
 .correct {
   background-color: #2f922f;

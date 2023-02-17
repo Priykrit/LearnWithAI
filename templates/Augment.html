@@ -5,9 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
+    <link rel="stylesheet" type="text/css" href="/static/App.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Courses.css" />
   </head>
+  <style>
+    .bg {
+      background-image: url("../static/pics/bg.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 1200px;
+      width: 100%;
+    }
+  </style>
   <body>
-    <a href="{{ url_for('index') }}">Home Page</a>
-    <img src="{{ url_for('videoforAug') }}" width="50%" />
+    <nav class="nav_head">
+      <div>
+        <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+      </div>
+      <ul class="Ul_head">
+        <li><a href="/" class="nav-link">HOME</a></li>
+        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
+        <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
+        <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
+        <li><a href="/Courses" class="nav-link">COURSES</a></li>
+        <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
+        <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
+        <li><a href="/interview" class="nav-link">ABOUT US</a></li>
+      </ul>
+    </nav>
+    <section class="bg">
+      <img src="{{ url_for('videoforInterview') }}" width="50%" />
+    </section>
+    <div class="copyright1__">
+      <span class="copyright2__">
+        @copyright this website and AI model are made by team StarBug 2023
+      </span>
+    </div>
+    <script></script>
   </body>
 </html>
