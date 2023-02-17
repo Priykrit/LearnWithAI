@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import dlib
 
-# cap = cv2.VideoCapture(0)
+
 
 
 # def POINTS(event, x, y, flags, param):
@@ -15,13 +15,7 @@ import dlib
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
-# while True:
-#     _, frame = cap.read()
 
-
-#     key = cv2.waitKey(1)
-#     if key == 27:
-#         break
 def side_face_detector(frame):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     gray = cv2.flip(gray, 1)

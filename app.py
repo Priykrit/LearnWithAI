@@ -9,6 +9,12 @@ import os
 import mediapipe as mp
 import rebs_estimation as rebe
 import aug
+import iris_detection as ird
+import brightness_control as bc
+import air_canvas as acc
+from collections import deque
+import numpy as np
+
 
 app = Flask(__name__)
 camera = cv2.VideoCapture(0)
@@ -16,16 +22,10 @@ camera = cv2.VideoCapture(0)
 picFolder = os.path.join('static', 'pics')
 app.config['UPLOAD_FOLDER'] = picFolder
 
-sleep = 0
-drowsy = 0
-active = 0
-status = ""
-color = (0, 0, 0)
-
-drowsy_list = [sleep, drowsy, active, status, color]
-
-
-def side_face():
+mp_face_mesh = mp.solutions.face_mesh
+face_mesh = mp_face_mesh.FaceMesh(max_num_faces=1, refine_landmarks=True, min_detection_confidence=0.5, min_tracking_confidence=0.5)
+iris_list=[face_mesh]
+def side_face_iris():
     while True:
 
         # read the camera frame
@@ -34,13 +34,23 @@ def side_face():
             break
         else:
             frame1 = sfd.side_face_detector(frame)
+            frame1 = cv2.flip(frame1,1)
+            frame2 = ird.iris_estimation(frame1,iris_list)
             # data = im.fromarray(frame)
-            ret, buffer = cv2.imencode('.jpg', frame1)
+
+            ret, buffer = cv2.imencode('.jpg', frame2)
             frame2 = buffer.tobytes()
 
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
 
+sleep = 0
+drowsy = 0
+active = 0
+status = ""
+color = (0, 0, 0)
+
+drowsy_list = [sleep, drowsy, active, status, color]
 
 def drowsy_face():
     while True:
@@ -51,6 +61,33 @@ def drowsy_face():
             break
         else:
             frame1 = dwsy.drowsyness_detector(frame, drowsy_list)
+            # data = im.fromarray(frame)
+            ret, buffer = cv2.imencode('.jpg', frame1)
+            frame2 = buffer.tobytes()
+
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
+
+
+
+sleepbc = 0
+drowsybc = 0
+activebc = 0
+statusbc = ""
+colorbc = (0, 0, 0)
+
+brightness_list = [sleepbc, drowsybc, activebc, statusbc, colorbc]
+
+
+def brightness_control():
+    while True:
+
+        # read the camera frame
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            frame1 = bc.brightness_contoller(frame, brightness_list)
             # data = im.fromarray(frame)
             ret, buffer = cv2.imencode('.jpg', frame1)
             frame2 = buffer.tobytes()
@@ -117,8 +154,8 @@ search_params = dict(checks=100)
 flann = cv2.FlannBasedMatcher(index_params,search_params)
 augment_list2 = [MIN_MATCHES,detector,FLANN_INDEX_KDTREE,index_params,search_params,flann]
 
-input_image = cv2.imread('C:\\Coding\\python_programming\\Projects\\Augmentation\\vk.jpg')
-augment_image = cv2.imread('C:\\Coding\\python_programming\\Projects\\Augmentation\\mask.jpg')
+input_image = cv2.imread('LearnWithAI\\static\\pics\\vk.jpg')
+augment_image = cv2.imread('LearnWithAI\\static\\pics\\mask.jpg')
 
 input_image = cv2.resize(input_image, (300,400),interpolation=cv2.INTER_AREA)
 augment_image = cv2.resize(augment_image, (300,400))
@@ -143,6 +180,42 @@ def aug_mask():
 
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
+
+
+
+bpoints = [deque(maxlen=1024)]
+gpoints = [deque(maxlen=1024)]
+rpoints = [deque(maxlen=1024)]
+ypoints = [deque(maxlen=1024)]
+blue_index = 0
+green_index = 0
+red_index = 0
+yellow_index = 0
+kernel = np.ones((5,5),np.uint8)
+colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (0, 255, 255)]
+colorIndex = 0
+
+air_list=[bpoints,gpoints,rpoints,ypoints,blue_index,green_index,red_index,yellow_index,kernel,colors,colorIndex]
+
+def air_canva():
+    while True:
+
+        # read the camera frame
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            frame1 = acc.colour_detector(frame,air_list)
+            # data = im.fromarray(frame)
+            ret, buffer = cv2.imencode('.jpg', frame1)
+            frame2 = buffer.tobytes()
+
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
+
+
+
+
 
 
 @app.route('/')
@@ -194,7 +267,7 @@ def nightstudy():
 @app.route('/videoforInterview')
 def videoforInterview():
     frame = Response(
-        side_face(), mimetype='multipart/x-mixed-replace; boundary=frame')
+        side_face_iris(), mimetype='multipart/x-mixed-replace; boundary=frame')
     return frame
 
 
@@ -224,5 +297,22 @@ def videoforAug():
         aug_mask(), mimetype='multipart/x-mixed-replace; boundary=frame')
     return frame
 
+@app.route('/videoforBrightness')
+def videoforBrightness():
+    frame = Response(
+        brightness_control(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return frame
+
+
+
+@app.route('/videoforAircanvas')
+def videoforAircanvas():
+    frame = Response(
+        air_canva(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return frame
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
