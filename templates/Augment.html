@@ -13,17 +13,75 @@
   </head>
   <style>
     .bg {
-      background-image: url("../static/pics/bg.svg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      height: 1200px;
-      width: 100%;
-    }
-  </style>
+     background-image: url("../static/pics/bg.svg");
+     /* background-position: ; */
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 1200px;
+     width: 100%;
+   }
+
+   .interview_png{
+
+     margin-left: 11%;
+     margin-top:20%;
+
+   }
+
+
+.head1{
+ color:rgb(255, 255, 255);
+ background-color: rgb(0, 83, 83);
+ padding: 10px;
+ margin-left: 5%;
+ border-radius: 10px;
+ font-size: 30px;
+ margin-top: 10px;
+ width: fit-content;
+}
+
+ .head__para{
+     width: 90%;
+     margin:auto;
+     margin-bottom: 20px;
+     background-color: rgb(255,255,255,0.2);
+     box-shadow: 0px 4px 16px;
+     padding: 30px;
+     font-size: 30px;
+     font-family: monospace;
+   }
+
+   .head__para span ul li{
+     list-style:lower-roman;
+     margin-left: 5%;
+     line-height: 50px;
+     font: bold;
+   }
+
+   .starBug
+   {
+     background: rgb(160, 80, 80);
+     width: fit-content;
+     margin-top: 10px;
+     margin-left:5%;
+     border-radius: 5px;
+     padding: 20px;
+     color: white;
+     font-size: 30px;
+
+   }
+
+   .head__para span ul li{
+     font-size: 30px;
+     font-family: monospace;
+
+   }
+
+ </style>
   <body>
     <nav class="nav_head">
       <div>
-        <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+        <img class="nav_symbol" src="../static/pics/symbol.svg" alt="iphone-app" />
       </div>
       <ul class="Ul_head">
         <li><a href="/" class="nav-link">HOME</a></li>
@@ -36,13 +94,64 @@
         <li><a href="/interview" class="nav-link">ABOUT US</a></li>
       </ul>
     </nav>
+
     <section class="bg">
-      <img src="{{ url_for('videoforInterview') }}" width="50%" />
+      <img src="{{ url_for('videoforAug') }}" width="50%" class="interview_png" />
     </section>
-    <div class="copyright1__">
-      <span class="copyright2__">
-        @copyright this website and AI model are made by team StarBug 2023
+    <div  class="head1">
+     <span>
+       INTERLACE
       </span>
+    </div>
+    <div class="starBug">
+      <span>
+        HOW WE IMPLEMENTED  INTERLACE
+      </span>
+   </div>
+    <br/>
+    <div class="head__para">
+      <span>
+        <ul>
+          
+          <li>Here's an algorithm for image augmentation using Numpy, OpenCV, ORB (Oriented FAST and Rotated BRIEF) feature detection, and FLANN (Fast Library for Approximate Nearest Neighbors) index:
+
+            Import necessary packages:</li>
+          <li>
+
+            Load the two images you want to augment:          </li>
+          <li>
+            
+            Convert the images to grayscale:  <br/> Detect and compute the ORB features for both images
+          </li>
+          <li>
+
+            Use FLANN to find the k nearest neighbors for each feature in the second image's descriptors, based on the descriptors in the first image:          </li>
+          <li>
+
+            Filter the matches by their distance using a ratio test:          </li>
+            <li>
+
+              Draw the matched keypoints between the two images:          </li>
+              <li>
+
+                Find the perspective transform between the keypoints in the two images:       </li>
+                <li>
+
+                  Use the perspective transform to warp the second image onto the first image:          </li>
+                  <li>
+
+                    Add the warped image to the first image using a blending function, such as cv2.addWeighted():          </li>
+                    <li>
+
+                      Display the results:    
+                      </li>  
+        </ul>
+        </span>
+      </div>
+      <div class="copyright1__">
+        <span class="copyright2__">
+          @copyright this website and AI model are made by team StarBug 2023
+        </span>
     </div>
     <script></script>
   </body>

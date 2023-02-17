@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/static/Courses.css" />
   </head>
   <style>
-    .bg {
+     .bg {
       background-image: url("../static/pics/bg.svg");
       /* background-position: ; */
       background-repeat: no-repeat;
@@ -20,11 +20,68 @@
       height: 1200px;
       width: 100%;
     }
+
+    .interview_png{
+
+      margin-left: 11%;
+      margin-top:20%;
+
+    }
+
+
+.head1{
+  color:rgb(255, 255, 255);
+  background-color: rgb(0, 83, 83);
+  padding: 10px;
+  margin-left: 5%;
+  border-radius: 10px;
+  font-size: 30px;
+  margin-top: 10px;
+  width: fit-content;
+}
+
+  .head__para{
+      width: 90%;
+      margin:auto;
+      margin-bottom: 20px;
+      background-color: rgb(255,255,255,0.2);
+      box-shadow: 0px 4px 16px;
+      padding: 30px;
+      font-size: 30px;
+      font-family: monospace;
+    }
+
+    .head__para span ul li{
+      list-style:lower-roman;
+      margin-left: 5%;
+      line-height: 50px;
+      font: bold;
+    }
+
+    .starBug
+    {
+      background: rgb(160, 80, 80);
+      width: fit-content;
+      margin-top: 10px;
+      margin-left:5%;
+      border-radius: 5px;
+      padding: 20px;
+      color: white;
+      font-size: 30px;
+
+    }
+
+    .head__para span ul li{
+      font-size: 30px;
+      font-family: monospace;
+
+    }
+
   </style>
   <body>
     <nav class="nav_head">
       <div>
-        <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+        <img class="nav_symbol" src="../static/pics/symbol.svg" alt="iphone-app" />
       </div>
       <ul class="Ul_head">
         <li><a href="/" class="nav-link">HOME</a></li>
@@ -37,9 +94,51 @@
         <li><a href="/interview" class="nav-link">ABOUT US</a></li>
       </ul>
     </nav>
+
     <section class="bg">
-      <img src="{{ url_for('videoforInterview') }}" width="50%" />
+      <img src="{{ url_for('videoforPoseRebs') }}" width="50%" class="interview_png" />
     </section>
+    <div  class="head1">
+     <span>
+       MOTIONMATE
+      </span>
+      <br/>
+    </div>
+    <div class="starBug">
+        <span>
+          HOW WE IMPLEMENTED MOTIONMATE
+        </span>
+     </div>
+    <br/>
+    <div class="head__para">
+      <span>
+        <ul>
+          
+          <li>Dlib is a popular library for machine learning in Python that includes pre-trained models for detecting facial landmarks and face recognition. While it is not designed specifically for detecting drowsiness, it is possible to use the facial landmarks provided by the library to determine if a person is drowsy or sleeping.</li>
+          <li>
+
+            Here's how you can use Dlib to detect if a person is drowsy, active, or sleeping:
+          </li>
+          <li>
+            
+            Import the necessary libraries  <br/> Load the pre-trained facial landmark detector provided by Dlib:
+          </li>
+          <li>
+
+            If a face is detected, use the dlib landmark predictor to detect the facial landmarks:
+          </li>
+          <li>
+
+            Define the eye aspect ratio (EAR) threshold values that will be used to determine if the eyes are closed or open. The EAR is a measure of how open or closed the eyes are, and it is calculated based on the distance between several facial landmarks. The threshold values can be adjusted based on your specific needs:
+          </li>
+        </ul>
+        </span>
+      </div>
+      <div class="copyright1__">
+        <span class="copyright2__">
+          @copyright this website and AI model are made by team StarBug 2023
+        </span>
+    </div>
     <script></script>
   </body>
 </html>

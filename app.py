@@ -154,8 +154,8 @@ search_params = dict(checks=100)
 flann = cv2.FlannBasedMatcher(index_params,search_params)
 augment_list2 = [MIN_MATCHES,detector,FLANN_INDEX_KDTREE,index_params,search_params,flann]
 
-input_image = cv2.imread('LearnWithAI\\static\\pics\\vk.jpg')
-augment_image = cv2.imread('LearnWithAI\\static\\pics\\mask.jpg')
+input_image = cv2.imread('static\\pics\\vk.jpg')
+augment_image = cv2.imread('static\\pics\\mask.jpg')
 
 input_image = cv2.resize(input_image, (300,400),interpolation=cv2.INTER_AREA)
 augment_image = cv2.resize(augment_image, (300,400))
@@ -254,14 +254,55 @@ def quiz():
     return render_template('quizPage.html', head=img, footer=img2, symbol=img3, head2=img1)
 
 
+@app.route('/Practice')
+def Practice():
+    img = os.path.join(app.config['UPLOAD_FOLDER'], 'head.svg')
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'head2.svg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    return render_template('Practice.html', head=img, footer=img2, symbol=img3, head2=img1)
+
+
+@app.route('/Courses')
+def Courses():
+    img = os.path.join(app.config['UPLOAD_FOLDER'], 'c1.webp')
+    img0 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'c2.jpg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'c3.jpg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'c4.png')
+    img4 = os.path.join(app.config['UPLOAD_FOLDER'], 'c5.png')
+    img5 = os.path.join(app.config['UPLOAD_FOLDER'], 'c6.png')
+    imgf = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+
+    return render_template('Courses.html', footer=imgf, symbol=img0, c1=img, c2=img2, c3=img3, c4=img1, c5=img4, c6=img5)
+
+
 @app.route('/interview')
 def interview():
-    return render_template('interview.html')
+    img0 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    return render_template('interview.html', symbol=img0)
 
 
 @app.route('/nightstudy')
 def nightstudy():
     return render_template('nightstudy.html')
+
+
+@app.route('/aircanva')
+def aircanva():
+    return render_template('Aircanvass.html')    
+
+@app.route('/PoseRebs')
+def poserebs():
+    return render_template('poserebs.html')    
+
+@app.route('/Augmentation')
+def Augment():
+    return render_template('Augment.html')    
+
+@app.route('/Brightness')
+def Brightness():
+    return render_template('brightness.html')    
 
 
 @app.route('/videoforInterview')

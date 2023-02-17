@@ -13,14 +13,70 @@
   </head>
   <style>
     .bg {
-      background-image: url("../static/pics/bg.svg");
-      /* background-position: ; */
-      background-repeat: no-repeat;
-      background-size: cover;
-      height: 1200px;
-      width: 100%;
-    }
-  </style>
+     background-image: url("../static/pics/bg.svg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 1200px;
+     width: 100%;
+   }
+
+   .interview_png{
+
+     margin-left: 11%;
+     margin-top:20%;
+
+   }
+
+
+.head1{
+ color:rgb(255, 255, 255);
+ background-color: rgb(0, 83, 83);
+ padding: 10px;
+ margin-left: 5%;
+ border-radius: 10px;
+ font-size: 30px;
+ margin-top: 10px;
+ width: fit-content;
+}
+
+ .head__para{
+     width: 90%;
+     margin:auto;
+     margin-bottom: 20px;
+     background-color: rgb(255,255,255,0.2);
+     box-shadow: 0px 4px 16px;
+     padding: 30px;
+     font-size: 30px;
+     font-family: monospace;
+   }
+
+   .head__para span ul li{
+     list-style:lower-roman;
+     margin-left: 5%;
+     line-height: 50px;
+     font: bold;
+   }
+
+   .starBug
+   {
+     background: rgb(160, 80, 80);
+     width: fit-content;
+     margin-top: 10px;
+     margin-left:5%;
+     border-radius: 5px;
+     padding: 20px;
+     color: white;
+     font-size: 30px;
+
+   }
+
+   .head__para span ul li{
+     font-size: 30px;
+     font-family: monospace;
+
+   }
+
+ </style>
   <body>
     <nav class="nav_head">
       <div>
@@ -39,12 +95,53 @@
     </nav>
 
     <section class="bg">
-      <img src="{{ url_for('videoforInterview') }}" width="50%" />
+      <img src="{{ url_for('videoforInterview') }}" width="50%" class="interview_png" />
     </section>
-    <div class="copyright1__">
-      <span class="copyright2__">
-        @copyright this website and AI model are made by team StarBug 2023
+    <div  class="head1">
+     <span>
+       AIProctor
       </span>
+    </div>
+    <div class="starBug">
+      <span>
+        HOW WE IMPLEMENTED  AIProctor
+      </span>
+   </div>
+    <br/>
+    <div class="head__para">
+      <span>
+        <ul>
+          
+          <li>Dlib is a popular library for facial landmark detection, and it can be used to detect side faces using landmarks. Here's how you can do it:
+          Load the dlib face detector and landmark predictor models:</li>
+          <li>
+
+            Read in an image that contains a side face:
+          </li>
+          <li>
+
+            Convert the image to grayscale:
+          </li>
+          <li>
+
+            Use the dlib face detector to detect the face in the image:
+          </li>
+          <li>
+
+            If a face is detected, use the dlib landmark predictor to detect the facial landmarks:
+          </li>
+          <li>
+
+            To determine if the face is a side face, you can check the positions of specific landmarks. For example, if the position of the nose tip (point 30) is to the left or right of the center of the face, the face is likely a side face. Here's an example of how to do this:
+            This is just one example of how to use dlib to detect side faces with landmarks. You can also experiment with different landmark positions and conditions to improve the accuracy of the detection.
+          </ul>
+        </li>
+        </span>
+      </div>
+      <div class="copyright1__">
+        <span class="copyright2__">
+          @copyright this website and AI model are made by team StarBug 2023
+        </span>
     </div>
     <script></script>
   </body>

@@ -5,9 +5,146 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
+    <link rel="stylesheet" type="text/css" href="/static/App.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Courses.css" />
   </head>
+  <style>
+    .bg {
+     background-image: url("../static/pics/bg.svg");
+     /* background-position: ; */
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 1200px;
+     width: 100%;
+   }
+
+   .interview_png{
+
+     margin-left: 11%;
+     margin-top:20%;
+
+   }
+
+
+.head1{
+ color:rgb(255, 255, 255);
+ background-color: rgb(0, 83, 83);
+ padding: 10px;
+ margin-left: 5%;
+ border-radius: 10px;
+ font-size: 30px;
+ margin-top: 10px;
+ width: fit-content;
+}
+
+ .head__para{
+     width: 90%;
+     margin:auto;
+     margin-bottom: 20px;
+     background-color: rgb(255,255,255,0.2);
+     box-shadow: 0px 4px 16px;
+     padding: 30px;
+     font-size: 30px;
+     font-family: monospace;
+   }
+
+   .head__para span ul li{
+     list-style:lower-roman;
+     margin-left: 5%;
+     line-height: 50px;
+     font: bold;
+   }
+
+   .starBug
+   {
+     background: rgb(160, 80, 80);
+     width: fit-content;
+     margin-top: 10px;
+     margin-left:5%;
+     border-radius: 5px;
+     padding: 20px;
+     color: white;
+     font-size: 30px;
+
+   }
+
+   .head__para span ul li{
+     font-size: 30px;
+     font-family: monospace;
+
+   }
+
+ </style>
   <body>
-    <a href="{{ url_for('index') }}">Home Page</a>
-    <img src="{{ url_for('videoforBrightness') }}" width="50%" />
+    <nav class="nav_head">
+      <div>
+        <img class="nav_symbol" src="../static/pics/symbol.svg" alt="iphone-app" />
+      </div>
+      <ul class="Ul_head">
+        <li><a href="/" class="nav-link">HOME</a></li>
+        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
+        <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
+        <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
+        <li><a href="/Courses" class="nav-link">COURSES</a></li>
+        <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
+        <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
+        <li><a href="/interview" class="nav-link">ABOUT US</a></li>
+      </ul>
+    </nav>
+
+    <section class="bg">
+      <img src="{{ url_for('videoforBrightness') }}" width="50%" class="interview_png" />
+    </section>
+    <div  class="head1">
+     <span>
+      OPTIBRIGHT
+      </span>
+    </div>
+    <div class="starBug">
+      <span>
+        HOW WE IMPLEMENTED  OPTIBRIGHT
+      </span>
+   </div>
+    <br/>
+    <div class="head__para">
+      <span>
+        <ul>
+          <li>
+            Controlling screen brightness based on the level of drowsiness, activity or sleepiness of a person is an interesting application of computer vision and screen brightness control. Here's how you can use Dlib and the screen_brightness_control library to control screen brightness based on a person's level of drowsiness:</li>
+          <li>
+
+            Here's how you can use Dlib to detect if a person is drowsy, active, or sleeping:
+          </li>
+          <li>
+            
+            Import the necessary libraries:  <br/> Load the pre-trained facial landmark detector provided by Dlib:
+          </li>
+          <li>
+
+            Define the eye aspect ratio (EAR) threshold values that will be used to determine if the eyes are closed or open. The EAR is a measure of how open or closed the eyes are, and it is calculated based on the distance between several facial landmarks. The threshold values can be adjusted based on your specific needs:
+          </li>
+          <li>
+
+            Define a function to calculate the EAR:          </li>
+            <li>
+
+              Define a function to control the screen brightness based on the level of drowsiness. You can adjust the brightness values and thresholds based on your specific needs:</li>
+              <li>
+                Read in a video or image of a person's face:       </li>
+                <li>
+
+                  Process each frame of the video or image:      </li>
+          </ul>
+        </span>
+      </div>
+      <div class="copyright1__">
+        <span class="copyright2__">
+          @copyright this website and AI model are made by team StarBug 2023
+        </span>
+    </div>
+    <script></script>
   </body>
 </html>
