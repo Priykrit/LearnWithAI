@@ -1,507 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="/static/style.css" />
-    <link rel="stylesheet" type="text/css" href="/static/App.css" />
-    <style>
-      #payment-form-wrapper {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-      }
 
-      #payment-form {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px;
-        border-radius: 5px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Dp Learning</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css" />
+  <link rel="stylesheet" type="text/css" href="/static/App.css" />
+  <style>
+    #payment-form-wrapper {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
 
-      #payment-form h2 {
-        margin-top: 0;
-      }
+    #payment-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+    }
 
-      #payment-form input {
-        display: block;
-        margin-bottom: 10px;
-        width: 100%;
-        padding: 5px;
-        border-radius: 3px;
-        border: 1px solid #ccc;
-      }
+    #payment-form h2 {
+      margin-top: 0;
+    }
 
-      #payment-form button[type="submit"],
-      #cancel-button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 3px;
-        cursor: pointer;
-        margin-right: 10px;
-      }
+    #payment-form input {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 5px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
 
-      #cancel-button {
-        background-color: #ccc;
-      }
+    #payment-form button[type="submit"],
+    #cancel-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
 
-      #pay-button {
-        background: linear-gradient(230deg, #06beb6, #48b1bf);
-        color: black;
-        transform: color 1s;
-      }
-      #pay-button:hover {
-        background: linear-gradient(230deg, #2f8581, #2e727b);
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="nav_head">
-      <div>
-        <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+    #cancel-button {
+      background-color: #ccc;
+    }
+
+    #pay-button {
+      background: linear-gradient(230deg, #06beb6, #48b1bf);
+      color: black;
+      transform: color 1s;
+    }
+
+    #pay-button:hover {
+      background: linear-gradient(230deg, #2f8581, #2e727b);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav_head">
+    <div>
+      <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+    </div>
+    <ul class="Ul_head">
+      <li><a href="/" class="nav-link">HOME</a></li>
+      <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
+      <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
+      <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
+      <li><a href="/Courses" class="nav-link">COURSES</a></li>
+      <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
+      <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
+      <li><a href="/interview" class="nav-link">ABOUT US</a></li>
+    </ul>
+  </nav>
+  <div class="wrapper">
+    <section class="bg-1" id="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 align-self-center">
+            <div class="content-block">
+              <h1 class="home-text">
+                <span>D</span>
+                <span>P</span>
+                <span>L</span>
+                <span>e</span>
+                <span>a</span>
+                <span>r</span>
+                <span>n</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span>
+              </h1>
+            </div>
+            <main class="container_added">
+              <p class="para">Learn with</p>
+              <section class="animation_added">
+                <div class="first1">
+                  <div>AI</div>
+                </div>
+                <div class="second1">
+                  <div>ML</div>
+                </div>
+                <div class="third1">
+                  <div>ME</div>
+                </div>
+              </section>
+            </main>
+          </div>
+          <div class="col-md-4">
+            <div class="image-block">
+              <img class="img-fluid phone-thumb bounce" src="{{head}}" alt="iphone-banner" />
+            </div>
+          </div>
+        </div>
       </div>
-      <ul class="Ul_head">
-        <li><a href="/" class="nav-link">HOME</a></li>
-        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
-        <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
-        <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
-        <li><a href="/Courses" class="nav-link">COURSES</a></li>
-        <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
-        <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
-        <li><a href="/interview" class="nav-link">ABOUT US</a></li>
-      </ul>
-    </nav>
-    <div class="wrapper">
-      <section class="bg-1" id="home">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 align-self-center">
-              <div class="content-block">
-                <h1 class="home-text">
-                  <span>D</span>
-                  <span>P</span>
-                  <span>L</span>
-                  <span>e</span>
-                  <span>a</span>
-                  <span>r</span>
-                  <span>n</span>
-                  <span>i</span>
-                  <span>n</span>
-                  <span>g</span>
-                </h1>
-              </div>
-              <main class="container_added">
-                <p class="para">Learn with</p>
-                <section class="animation_added">
-                  <div class="first1"><div>AI</div></div>
-                  <div class="second1"><div>ML</div></div>
-                  <div class="third1"><div>ME</div></div>
-                </section>
-              </main>
-            </div>
-            <div class="col-md-4">
-              <div class="image-block">
-                <img
-                  class="img-fluid phone-thumb bounce"
-                  src="{{head}}"
-                  alt="iphone-banner"
-                />
-              </div>
+    </section>
+    <section class="about section bg-2" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 align-self-center text-center">
+            <div class="image-block">
+              <img class="phone-thumb-md" src="{{head2}}" alt="iphone-feature" />
             </div>
           </div>
-        </div>
-      </section>
-      <section class="about section bg-2" id="about">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 align-self-center text-center">
-              <div class="image-block">
-                <img
-                  class="phone-thumb-md"
-                  src="{{head2}}"
-                  alt="iphone-feature"
-                />
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-10 m-md-auto align-self-center ml-auto">
-              <div class="about-block">
-                <div class="about-item">
-                  <div class="content_">
-                    <h5>Designed to deliver results</h5>
-                    <p>
-                      The expert teacher explains and teaches topics in-depth
-                      ensuring conceptual clarity. The second teacher
-                      facilitates a class of 20 and pays attention to individual
-                      student’s needs making the sessions interactive and
-                      engaging
-                    </p>
-                  </div>
-                </div>
-                <div class="about-item active">
-                  <div class="content_">
-                    <h5>Structured to learn-practice-revise</h5>
-                    <p>
-                      The expert teacher teaches concepts using strong visuals
-                      and storytelling. The second teacher solves doubts
-                      instantly, conducts tests and assigns homework
-                    </p>
-                  </div>
-                </div>
-                <div class="about-item">
-                  <div class="content_">
-                    <h5>Individual Knowledge Graph</h5>
-                    <p>
-                      Every class is carefully designed by experts with methods
-                      that are proven to give results. Classes are structured to
-                      help students not just learn concepts but also practice
-                      and revise them
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section feature" id="feature">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="section-title">
-                <h2>Website Features</h2>
-                <p>
-                  VLearn is on a mission to nurture the future of the next
-                  generation and AI plays a major role in it
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="row bg-elipse">
-            <div class="col-lg-4 align-self-center text-center text-lg-right">
-              <div class="feature-item">
-                <div class="content">
-                  <h5>Homework</h5>
+          <div class="col-lg-6 col-md-10 m-md-auto align-self-center ml-auto">
+            <div class="about-block">
+              <div class="about-item">
+                <div class="content_">
+                  <h5>Our AI Mentor</h5>
                   <p>
-                    Worksheets, class notes and practice through VLearn's - The
-                    Learning App
+                    We are proud to have the best AI mentor to teach our students about the latest AI concepts. With
+                    their deep knowledge, expertise, and experience in the field, our mentor is well-equipped to guide
+                    students through the complexities of artificial intelligence and machine learning. Their commitment
+                    to staying up-to-date on the latest advancements in AI ensures that our students receive the most
+                    current and relevant instruction possible. We are confident that our students will come away from
+                    their mentorship with a comprehensive understanding of AI and the skills needed to excel in this
+                    rapidly growing field.
                   </p>
                 </div>
               </div>
-              <div class="feature-item">
-                <div class="content">
-                  <h5>Testing</h5>
+              <div class="about-item active">
+                <div class="content_">
+                  <h5>Our Methodologies for bright future</h5>
                   <p>
-                    Monthly subjective and objective tests covering the full
-                    syllabus and test discussions
+                    At our learning institution, we offer a comprehensive approach to teaching AI that includes a
+                    variety of interactive tools and resources designed to help students better understand AI concepts.
+                    We offer AI quizzes that allow students to test their knowledge and receive immediate feedback, as
+                    well as methods to visualize AI in the best possible way. Our visualization tools are designed to
+                    provide students with a deeper understanding of complex AI concepts, making it easier for them to
+                    grasp the material.
+                  </p>
+                </div>
+              </div>
+              <div class="about-item">
+                <div class="content_">
+                  <h5>Our Approach</h5>
+                  <p>
+                    In addition, we offer exercises that provide students with hands-on experience in applying AI
+                    concepts to real-world problems. With these resources at their disposal, our students are
+                    well-equipped to develop a strong foundation in AI and succeed in this exciting and rapidly growing
+                    field
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 text-center">
-              <div class="feature-item mb-0">
-                <div class="content">
-                  <h5>Reporting</h5>
-                  <p>Monthly report cards and completion rates</p>
-                </div>
-              </div>
-              <div class="app-screen">
-                <img class="img-fluid" src="{{symbol}}" alt="app-screen" />
-              </div>
-              <div class="feature-item">
-                <div class="content">
-                  <h5>Parent Teacher Meetings</h5>
-                  <p>Mentor feedback and guidance through PTMs</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 text-center text-lg-left align-self-center">
-              <div class="feature-item">
-                <div class="content">
-                  <h5>Quizzes</h5>
-                  <p>
-                    Tests, quizzes and worksheets for better practice and
-                    retention.{" "}
-                  </p>
-                </div>
-              </div>
-              <div class="feature-item">
-                <div class="content">
-                  <h5>Visual Learning</h5>
-                  <p>Learn from engaging & interactive video lessons on app</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="pricing section bg-shape" id="pricing">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="section-title mb-4">
-                <h2 class="mb-3">Choose Your Subscription Plan</h2>
-                <p>
-                  Get yourself access to the various services we provide, to
-                  build your future with the power of AI.{" "}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <div class="pricing-table text-center">
-                <div class="title">
-                  <h5>Free</h5>
-                </div>
-                <div class="price">
-                  <p>$0<span>/month</span></p>
-                </div>
-                <ul class="feature-list">
-                  <li>Free Lectures</li>
-                  <li>Free Quizzes</li>
-                  <li>No Mock Interviews</li>
-                </ul>
-                <div class="action-button">
-                  <button class="btn btn-main-rounded">Start Now</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="pricing-table featured text-center">
-                <div class="title">
-                  <h5>Basic</h5>
-                </div>
-                <div class="price">
-                  <p>$50<span>/month</span></p>
-                </div>
-                <ul class="feature-list">
-                  <li>Free Lectures</li>
-                  <li>Free Quizzes</li>
-                  <li>Limited Mock Interviews</li>
-                </ul>
-                <div class="action-button btn btn-main-rounded">
-                  <button id="pay-button">Pay with cryptocurrency</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 m-md-auto">
-              <div class="pricing-table text-center">
-                <div class="title">
-                  <h5>Advance</h5>
-                </div>
-                <div class="price">
-                  <p>$1000<span>/month</span></p>
-                </div>
-                <ul class="feature-list">
-                  <li>Free Lectures</li>
-                  <li>Free Quizzes</li>
-                  <li>Unlimited Mock Interviews</li>
-                </ul>
-                <div class="action-button btn btn-main-rounded">
-                  <button id="pay-button">Pay with cryptocurrency</button>
-                </div>
-              </div>
+    <section class="section feature" id="feature">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title">
+              <h2>Our Strength</h2>
+              <p>
+                DPLearning is dedicated to preparing the next generation for the future, and at the heart of our mission
+                is
+                a commitment to harnessing the power of AI. By integrating AI technologies into our learning programs,
+                we are able to provide students with a cutting-edge education that prepares them for the ever-evolving
+                job market. Our focus on AI allows us to equip students with the skills and knowledge they need to
+                thrive in an increasingly digital world. We believe that by embracing AI, we can unlock new
+                opportunities for our students and help them reach their full potential
+              </p>
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="section counter bg-gray">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-              <div class="counter-item">
-                <h3>
-                  <span id="counter"> </span>
-                  +
-                </h3>
-                <p>Courses</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-              <div class="counter-item">
-                <h3>
-                  <span id="counter1"> </span>
-                  k+
-                </h3>
-                <p>Active Users</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-              <div class="counter-item">
-                <h3>
-                  <span id="counter2"> </span>
-                  +
-                </h3>
-                <p>Tutors</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-              <div class="counter-item">
-                <h3>
-                  <span id="counter3"> </span>
-                  k+
-                </h3>
-                <p>Enrolled Students</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section cta-subscribe" id="contact">
-        <div class="container">
-          <div class="row bg-elipse-red">
-            <div class="col-lg-4">
-              <div class="image">
-                <img class="phone-thumb" src="{{footer}}" alt="iphone-app" />
-              </div>
-            </div>
-            <div class="col-lg-8 align-self-center">
+        <div class="row bg-elipse">
+          <div class="col-lg-4 align-self-center text-center text-lg-right">
+            <div class="feature-item">
               <div class="content">
-                <div class="mb-4">
-                  <h2>Subscribe To Our Newsletter</h2>
-                </div>
-                <div class="description">
-                  <p>
-                    Follow our socials and subscribe to our newsletter to stay
-                    updated and fetch every information in the world.
-                  </p>
-                </div>
-                <form action="#">
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter your email address"
-                    />
-                  </div>
-                </form>
+                <h5>ASSIGNMENT</h5>
+
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="content">
+                <h5>QUIZES</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center">
+            <div class="feature-item mb-0">
+              <div class="content">
+                <h5>Uncompromising</h5>
+              </div>
+            </div>
+            <div class="app-screen">
+              <img class="img-fluid" src="{{symbol}}" alt="app-screen" />
+            </div>
+            <div class="feature-item">
+              <div class="content">
+                <h5>Create You Own Models</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center text-lg-left align-self-center">
+            <div class="feature-item">
+              <div class="content">
+                <h5>Study At Night</h5>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="content">
+                <h5>Don't Strain Your</h5>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
-    <div id="payment-form-wrapper">
-      <div id="payment-form">
-        <h2>Enter Payment Details</h2>
-        <form>
-          <div>
-            <label for="amount">Amount:</label>
-            <input
-              type="text"
-              id="amount"
-              name="amount"
-              placeholder="Enter the amount to pay"
-            />
-          </div>
-          <div>
-            <label for="recipient">Recipient Address:</label>
-            <input
-              type="text"
-              id="recipient"
-              name="recipient"
-              placeholder="Enter the recipient's address"
-            />
-          </div>
-          <div>
-            <button type="submit">Pay</button>
-            <button type="button" id="cancel-button">Cancel</button>
-          </div>
-        </form>
       </div>
+    </section>
+
+    <section class="pricing section bg-shape" id="pricing">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title mb-4">
+              <h2 class="mb-3">Join Our Family</h2>
+              <p>
+                Access our AI-powered services to build your future with us.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="pricing-table text-center">
+              <div class="title">
+                <h5>Free</h5>
+              </div>
+              <div class="price">
+                <p>$0<span>/month</span></p>
+              </div>
+              <ul class="feature-list">
+                <li>Free Lectures</li>
+                <li>Free Quizzes</li>
+                <li>No Mock Interviews</li>
+              </ul>
+              <div class="action-button">
+                <button class="btn btn-main-rounded">Start Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="pricing-table featured text-center">
+              <div class="title">
+                <h5>Basic</h5>
+              </div>
+              <div class="price">
+                <p>$50<span>/month</span></p>
+              </div>
+              <ul class="feature-list">
+                <li>Free Lectures</li>
+                <li>Free Quizzes</li>
+                <li>Limited Mock Interviews</li>
+              </ul>
+              <div class="action-button btn btn-main-rounded">
+                <button id="pay-button">Pay with cryptocurrency</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 m-md-auto">
+            <div class="pricing-table text-center">
+              <div class="title">
+                <h5>Advance</h5>
+              </div>
+              <div class="price">
+                <p>$1000<span>/month</span></p>
+              </div>
+              <ul class="feature-list">
+                <li>Free Lectures</li>
+                <li>Free Quizzes</li>
+                <li>Unlimited Mock Interviews</li>
+              </ul>
+              <div class="action-button btn btn-main-rounded">
+                <button id="pay-button">Pay with cryptocurrency</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section counter bg-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="counter-item">
+              <h3>
+                <span id="counter"> </span>
+                +
+              </h3>
+              <p>Courses</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="counter-item">
+              <h3>
+                <span id="counter1"> </span>
+                k+
+              </h3>
+              <p>Active Users</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="counter-item">
+              <h3>
+                <span id="counter2"> </span>
+                +
+              </h3>
+              <p>Tutors</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="counter-item">
+              <h3>
+                <span id="counter3"> </span>
+                k+
+              </h3>
+              <p>Enrolled Students</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section cta-subscribe" id="contact">
+      <div class="container">
+        <div class="row bg-elipse-red">
+          <div class="col-lg-4">
+            <div class="image">
+              <img class="phone-thumb" src="{{footer}}" alt="iphone-app" />
+            </div>
+          </div>
+          <div class="col-lg-8 align-self-center">
+            <div class="content">
+              <div class="mb-4">
+                <h2>Join Our Mailing list</h2>
+              </div>
+              <div class="description">
+                <p>
+                  Stay in the know by following our socials and subscribing to our Mailing list, where you'll find the
+                  latest information from around the world.
+                </p>
+              </div>
+              <form action="#">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Enter your email address" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div id="payment-form-wrapper">
+    <div id="payment-form">
+      <h2>Enter Payment Details</h2>
+      <form>
+        <div>
+          <label for="amount">Token no</label>
+          <input type="text" id="amount" name="amount" placeholder="Enter the token no" />
+        </div>
+        <div>
+          <label for="recipient">Metamask Id</label>
+          <input type="text" id="recipient" name="recipient" placeholder="Enter Your Metamask" />
+        </div>
+        <div>
+          <button type="submit">Pay</button>
+          <button type="button" id="cancel-button">Cancel</button>
+        </div>
+      </form>
     </div>
-    <div class="copyright1__">
-      <span class="copyright2__">
-        @copyright this website and AI model are made by team StarBug 2023
-      </span>
-    </div>
-    <script>
-      var counterElement = document.getElementById("counter");
-      var count = 0;
+  </div>
+  <div class="copyright1__">
+    <span class="copyright2__">
+      @copyright this website and AI model are made by team StarBug 2023
+    </span>
+  </div>
+  <script>
+    var counterElement = document.getElementById("counter");
+    var count = 0;
 
-      var intervalId = setInterval(function () {
-        count++;
-        counterElement.innerText = count;
-        if (count == 100) {
-          clearInterval(intervalId);
-        }
-      }, 10);
+    var intervalId = setInterval(function () {
+      count++;
+      counterElement.innerText = count;
+      if (count == 100) {
+        clearInterval(intervalId);
+      }
+    }, 10);
 
-      //*******************************
-      var counterElement1 = document.getElementById("counter1");
-      var count1 = 0;
+    //*******************************
+    var counterElement1 = document.getElementById("counter1");
+    var count1 = 0;
 
-      var intervalId1 = setInterval(function () {
-        count1++;
-        counterElement1.innerText = count1;
-        if (count1 == 2) {
-          clearInterval(intervalId1);
-        }
-      }, 100);
+    var intervalId1 = setInterval(function () {
+      count1++;
+      counterElement1.innerText = count1;
+      if (count1 == 2) {
+        clearInterval(intervalId1);
+      }
+    }, 100);
 
-      // **********************************
-      var counterElement2 = document.getElementById("counter2");
-      var count2 = 400;
+    // **********************************
+    var counterElement2 = document.getElementById("counter2");
+    var count2 = 400;
 
-      var intervalId2 = setInterval(function () {
-        count2--;
-        counterElement2.innerText = count2;
-        if (count2 == 200) {
-          clearInterval(intervalId2);
-        }
-      }, 10);
+    var intervalId2 = setInterval(function () {
+      count2--;
+      counterElement2.innerText = count2;
+      if (count2 == 200) {
+        clearInterval(intervalId2);
+      }
+    }, 10);
 
-      // ************************************
-      var counterElement3 = document.getElementById("counter3");
-      var count3 = 0;
+    // ************************************
+    var counterElement3 = document.getElementById("counter3");
+    var count3 = 0;
 
-      var intervalId3 = setInterval(function () {
-        count3++;
-        counterElement3.innerText = count3;
-        if (count3 == 8) {
-          clearInterval(intervalId3);
-        }
-      }, 100);
+    var intervalId3 = setInterval(function () {
+      count3++;
+      counterElement3.innerText = count3;
+      if (count3 == 8) {
+        clearInterval(intervalId3);
+      }
+    }, 100);
       // ***********************************
-    </script>
-    <script>
-      const payButton = document.getElementById("pay-button");
-      const formWrapper = document.getElementById("payment-form-wrapper");
-      const cancelButton = document.getElementById("cancel-button");
-      const form = document.querySelector("#payment-form form");
+  </script>
+  <script>
+    const payButton = document.getElementById("pay-button");
+    const formWrapper = document.getElementById("payment-form-wrapper");
+    const cancelButton = document.getElementById("cancel-button");
+    const form = document.querySelector("#payment-form form");
 
-      payButton.addEventListener("click", (event) => {
-        formWrapper.style.display = "block";
-      });
+    payButton.addEventListener("click", (event) => {
+      formWrapper.style.display = "block";
+    });
 
-      cancelButton.addEventListener("click", (event) => {
-        formWrapper.style.display = "none";
-      });
+    cancelButton.addEventListener("click", (event) => {
+      formWrapper.style.display = "none";
+    });
 
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const amount = document.getElementById("amount").value;
-        const recipient = document.getElementById("recipient").value;
-        // Handle payment processing here
-        console.log(`Processing payment of ${amount} to ${recipient}`);
-        // Hide the form
-        formWrapper.style.display = "none";
-      });
-    </script>
-  </body>
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const amount = document.getElementById("amount").value;
+      const recipient = document.getElementById("recipient").value;
+      // Handle payment processing here
+      console.log(`Processing payment of ${amount} to ${recipient}`);
+      // Hide the form
+      formWrapper.style.display = "none";
+    });
+  </script>
+</body>
+
 </html>

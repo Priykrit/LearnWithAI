@@ -14,8 +14,9 @@ import brightness_control as bc
 import air_canvas as acc
 from collections import deque
 import numpy as np
-
-
+import torch
+import web
+import object_detect as objd
 app = Flask(__name__)
 camera = cv2.VideoCapture(0)
 
@@ -97,21 +98,7 @@ def brightness_control():
 
 
 
-# def pose():
-#     while True:
 
-#         # read the camera frame
-#         success, frame = camera.read()
-#         if not success:
-#             break
-#         else:
-#             frame1 = ps.pose_estimation(frame)
-#             # data = im.fromarray(frame)
-#             ret, buffer = cv2.imencode('.jpg', frame1)
-#             frame2 = buffer.tobytes()
-
-#             yield (b'--frame\r\n'
-#                    b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
 
 
 
@@ -160,7 +147,7 @@ augment_image = cv2.imread('static\\pics\\mask.jpg')
 input_image = cv2.resize(input_image, (300,400),interpolation=cv2.INTER_AREA)
 augment_image = cv2.resize(augment_image, (300,400))
 gray_image = cv2.cvtColor(input_image, cv2.COLOR_BGR2GRAY)
-	# find the keypoints with ORB
+
 keypoints, descriptors = detector.detectAndCompute(gray_image, None)
 augment_list = [gray_image,augment_image,keypoints, descriptors]
 
@@ -215,6 +202,43 @@ def air_canva():
 
 
 
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+web_list = [model]
+def web_search():
+    while True:
+
+        # read the camera frame
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            frame1 = web.wb_search(frame,web_list)
+            # data = im.fromarray(frame)
+            ret, buffer = cv2.imencode('.jpg', frame1)
+            frame2 = buffer.tobytes()
+
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
+
+
+
+model1 = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+obj_list = [model1]
+def objj_search():
+    while True:
+
+        # read the camera frame
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            frame1 = objd.obj_search(frame,obj_list)
+            # data = im.fromarray(frame)
+            ret, buffer = cv2.imencode('.jpg', frame1)
+            frame2 = buffer.tobytes()
+
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame2 + b'\r\n')
 
 
 
@@ -304,6 +328,14 @@ def Augment():
 def Brightness():
     return render_template('brightness.html')    
 
+@app.route('/Object')
+def Object():
+    return render_template('Objectdetect.html')    
+
+@app.route('/Web')
+def Web():
+    return render_template('WebSearch.html')   
+
 
 @app.route('/videoforInterview')
 def videoforInterview():
@@ -319,11 +351,7 @@ def videoforNightstudy():
     return frame
 
 
-# @app.route('/videoforPose')
-# def videoforPose():
-#     frame = Response(
-#         pose(), mimetype='multipart/x-mixed-replace; boundary=frame')
-#     return frame
+
 
 
 @app.route('/videoforPoseRebs')
@@ -350,6 +378,18 @@ def videoforBrightness():
 def videoforAircanvas():
     frame = Response(
         air_canva(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return frame
+
+@app.route('/videoforWeb')
+def videoforWeb():
+    frame = Response(
+        web_search(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return frame
+
+@app.route('/videoforObjdetect')
+def videoforObjdetect():
+    frame = Response(
+        objj_search(), mimetype='multipart/x-mixed-replace; boundary=frame')
     return frame
 
 if __name__ == "__main__":

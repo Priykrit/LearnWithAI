@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>AIProctor</title>
     <link rel="stylesheet" type="text/css" href="/static/style.css" />
     <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
     <link rel="stylesheet" type="text/css" href="/static/App.css" />
@@ -113,14 +113,18 @@
         <ul>
           
           <li>Dlib is a popular library for facial landmark detection, and it can be used to detect side faces using landmarks. Here's how you can do it:
-          Load the dlib face detector and landmark predictor models:</li>
-          <li>
-
-            Read in an image that contains a side face:
           </li>
           <li>
 
-            Convert the image to grayscale:
+            Load the dlib face detector and landmark predictor models
+          </li>
+          <li>
+
+            Read in an image that contains a side face
+          </li>
+          <li>
+
+            Convert the image to grayscale
           </li>
           <li>
 
@@ -128,15 +132,44 @@
           </li>
           <li>
 
-            If a face is detected, use the dlib landmark predictor to detect the facial landmarks:
+            If a face is detected, use the dlib landmark predictor to detect the facial landmarks
           </li>
           <li>
 
-            To determine if the face is a side face, you can check the positions of specific landmarks. For example, if the position of the nose tip (point 30) is to the left or right of the center of the face, the face is likely a side face. Here's an example of how to do this:
-            This is just one example of how to use dlib to detect side faces with landmarks. You can also experiment with different landmark positions and conditions to improve the accuracy of the detection.
-          </ul>
-        </li>
-        </span>
+            To determine if the face is a side face, you can check the positions of specific landmarks. For example, if the position of the landmark {1,29,15} , {2,30,14} and {3,33,13} can be used to check for side face, when appled with proper conditions.
+            This is just one example of how to use dlib to detect side faces with landmarks.</li>
+
+            <li>
+
+              Mediapipe also provides a face mesh solution, which can be used to detect the position of the eyes and other facial landmarks. Here's how you can use the face mesh and iris models in Mediapipe to detect eyes at the corner of a face:
+            </li>
+            <li>
+
+              Load the face mesh
+            </li>
+            <li>
+
+              Read in an image of a face
+            </li>
+            <li>
+
+              Convert the image to RGB format
+
+            </li>
+            <li>
+
+              Use the face mesh model to detect the facial landmark
+            </li>
+            <li>
+
+              If the face mesh is detected, check the positions of specific landmarks to determine if the eyes are at the corner of the face. For example, if the position of the outer corner of the eye (landmark 33 for the left eye and landmark 263 for the right eye) is close to the edge of the face (landmark 0), the eye is likely at the corner of the face.
+            </li><li>
+
+              And with differenct conditions on landmarks we can create a robust model like AIProctor.
+            </li>
+        </ul>
+        
+      </span>
       </div>
       <div class="copyright1__">
         <span class="copyright2__">

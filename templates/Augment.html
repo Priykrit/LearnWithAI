@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>INTERLACE</title>
     <link rel="stylesheet" type="text/css" href="/static/style.css" />
     <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
     <link rel="stylesheet" type="text/css" href="/static/App.css" />
@@ -105,7 +105,7 @@
     </div>
     <div class="starBug">
       <span>
-        HOW WE IMPLEMENTED  INTERLACE
+        HOW WE IMPLEMENTED INTERLACE
       </span>
    </div>
     <br/>
@@ -115,35 +115,35 @@
           
           <li>Here's an algorithm for image augmentation using Numpy, OpenCV, ORB (Oriented FAST and Rotated BRIEF) feature detection, and FLANN (Fast Library for Approximate Nearest Neighbors) index:
 
-            Import necessary packages:</li>
+            Import necessary packages</li>
           <li>
 
-            Load the two images you want to augment:          </li>
+            Load the two images you want to augment        </li>
           <li>
             
-            Convert the images to grayscale:  <br/> Detect and compute the ORB features for both images
+            Convert the images to grayscale  <br/> Detect and compute the ORB features for both images
           </li>
           <li>
 
-            Use FLANN to find the k nearest neighbors for each feature in the second image's descriptors, based on the descriptors in the first image:          </li>
+            Use FLANN to find the k nearest neighbors for each feature in the second image's descriptors, based on the descriptors in the first image          </li>
           <li>
 
-            Filter the matches by their distance using a ratio test:          </li>
+            Filter the matches by their distance using a ratio test          </li>
             <li>
 
-              Draw the matched keypoints between the two images:          </li>
+              Draw the matched keypoints between the two images          </li>
               <li>
 
-                Find the perspective transform between the keypoints in the two images:       </li>
+                Find the perspective transform between the keypoints in the two images       </li>
                 <li>
 
-                  Use the perspective transform to warp the second image onto the first image:          </li>
+                  Use the perspective transform to warp the second image onto the first image          </li>
                   <li>
 
-                    Add the warped image to the first image using a blending function, such as cv2.addWeighted():          </li>
+                    Add the warped image to the first image using a blending function          </li>
                     <li>
 
-                      Display the results:    
+                      Return the Processed frame   
                       </li>  
         </ul>
         </span>

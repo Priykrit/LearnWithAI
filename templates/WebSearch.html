@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
+    <link rel="stylesheet" type="text/css" href="/static/App.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
+    <link rel="stylesheet" type="text/css" href="/static/Courses.css" />
+  </head>
+  <style>
+    .bg {
+     background-image: url("../static/pics/bg.svg");
+     /* background-position: ; */
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 1200px;
+     width: 100%;
+   }
+
+   .interview_png{
+
+     margin-left: 11%;
+     margin-top:20%;
+
+   }
+
+
+.head1{
+ color:rgb(255, 255, 255);
+ background-color: rgb(0, 83, 83);
+ padding: 10px;
+ margin-left: 5%;
+ border-radius: 10px;
+ font-size: 30px;
+ margin-top: 10px;
+ width: fit-content;
+}
+
+ .head__para{
+     width: 90%;
+     margin:auto;
+     margin-bottom: 20px;
+     background-color: rgb(255,255,255,0.2);
+     box-shadow: 0px 4px 16px;
+     padding: 30px;
+     font-size: 30px;
+     font-family: monospace;
+   }
+
+   .head__para span ul li{
+     list-style:lower-roman;
+     margin-left: 5%;
+     line-height: 50px;
+     font: bold;
+   }
+
+   .starBug
+   {
+     background: rgb(160, 80, 80);
+     width: fit-content;
+     margin-top: 10px;
+     margin-left:5%;
+     border-radius: 5px;
+     padding: 20px;
+     color: white;
+     font-size: 30px;
+
+   }
+
+   .head__para span ul li{
+     font-size: 30px;
+     font-family: monospace;
+
+   }
+
+ </style>
+  <body>
+    <nav class="nav_head">
+      <div>
+        <img class="nav_symbol" src="../static/pics/symbol.svg" alt="iphone-app" />
+      </div>
+      <ul class="Ul_head">
+        <li><a href="/" class="nav-link">HOME</a></li>
+        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
+        <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
+        <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
+        <li><a href="/Courses" class="nav-link">COURSES</a></li>
+        <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
+        <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
+        <li><a href="/interview" class="nav-link">ABOUT US</a></li>
+      </ul>
+    </nav>
+
+    <section class="bg">
+      <img src="{{ url_for('videoforWeb') }}" width="50%" class="interview_png" />
+    </section>
+    <div  class="head1">
+     <span>
+       VIRTUALEASEL
+      </span>
+    </div>
+    <div class="starBug">
+      <span>
+        HOW WE IMPLEMENTED  IMAGESLEUTH
+      </span>
+   </div>
+    <br/>
+    <div class="head__para">
+      <span>
+        <ul>
+          <li>
+            Process each frame of the video or image:       
+            <li>
+              Refer to algorithms of OBJECTMAPPER for detection of objects and stores labels of detected object in list for web searching
+          </li>
+          <li>
+            Import the necessary libraries  <br/> Initialize a variable "topic_search" with the search topic
+          </li>
+          <li>
+
+            eplace any spaces in "topic_search" with "+"          </li>
+          <li>
+
+            Initialize a new instance of the Edge web driver using the "msedgedriver.exe" file          </li>
+            <li>
+
+              Construct a URL by concatenating "https://www.bing.com/search?q=" with "topic_search" and "&start" with the string representation of "i"         </li>
+              <li>
+
+                Call the "browser.get()" method with the URL constructed in above step        </li>
+                <li>
+
+                  Store the return value of "browser.get()" in a variable "elements" this will open search in browser        </li>       
+        </ul>
+        </span>
+      </div>
+      <div class="copyright1__">
+        <span class="copyright2__">
+          @copyright this website and AI model are made by team StarBug 2023
+        </span>
+    </div>
+    <script></script>
+  </body>
+</html>

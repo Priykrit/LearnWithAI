@@ -79,7 +79,7 @@ def pose_estimation(frame,pose_list):
         pass
         
       
-    cv2.rectangle(image, (0,0), (225,73), (245,117,16), -1)
+    cv2.rectangle(image, (0,0), (255,73), (245,117,167), -1)
         
      
     cv2.putText(image, 'REPS', (15,12), 
@@ -89,10 +89,10 @@ def pose_estimation(frame,pose_list):
                     cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
         
    
-    cv2.putText(image, 'STAGE', (65,12), 
+    cv2.putText(image, 'STAGE', (85,12), 
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 1, cv2.LINE_AA)
     cv2.putText(image, stage, 
-                    (60,60), 
+                    (90,60), 
                     cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
         
         
