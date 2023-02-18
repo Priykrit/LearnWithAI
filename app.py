@@ -277,6 +277,14 @@ def quiz():
     img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
     return render_template('quizPage.html', head=img, footer=img2, symbol=img3, head2=img1)
 
+@app.route('/aboutus')
+def aboutus():
+    img = os.path.join(app.config['UPLOAD_FOLDER'], 'head.svg')
+    img1 = os.path.join(app.config['UPLOAD_FOLDER'], 'head2.svg')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    img3 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
+    return render_template('AboutUs.html', head=img, footer=img2, symbol=img3, head2=img1)
+
 
 @app.route('/Practice')
 def Practice():
@@ -304,37 +312,45 @@ def Courses():
 @app.route('/interview')
 def interview():
     img0 = os.path.join(app.config['UPLOAD_FOLDER'], 'symbol.svg')
-    return render_template('interview.html', symbol=img0)
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    return render_template('interview.html', symbol=img0,footer=img2)
 
 
 @app.route('/nightstudy')
 def nightstudy():
-    return render_template('nightstudy.html')
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    return render_template('nightstudy.html',footer=img2)
 
 
 @app.route('/aircanva')
 def aircanva():
-    return render_template('Aircanvass.html')    
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    return render_template('Aircanvass.html',footer=img2)    
 
 @app.route('/PoseRebs')
 def poserebs():
-    return render_template('poserebs.html')    
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    return render_template('poserebs.html',footer=img2)    
 
 @app.route('/Augmentation')
 def Augment():
-    return render_template('Augment.html')    
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    return render_template('Augment.html',footer=img2)    
 
 @app.route('/Brightness')
 def Brightness():
-    return render_template('brightness.html')    
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    return render_template('brightness.html',footer=img2)    
 
 @app.route('/Object')
 def Object():
-    return render_template('Objectdetect.html')    
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    return render_template('Objectdetect.html',footer=img2)    
 
 @app.route('/Web')
 def Web():
-    return render_template('WebSearch.html')   
+    img2 = os.path.join(app.config['UPLOAD_FOLDER'], 'footer.svg')
+    return render_template('WebSearch.html',footer=img2)   
 
 
 @app.route('/videoforInterview')

@@ -9,13 +9,15 @@
     <link rel="stylesheet" type="text/css" href="/static/App.css" />
     <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
     <link rel="stylesheet" type="text/css" href="/static/Courses.css" />
+    <link rel="icon" type="image/x-icon" href="../static/pics/symbol.svg">
+
   </head>
   <style>
     #courses-container {
       background-image: url("/static/pics/AIBox_bg.jpg");
       background-repeat: no-repeat;
       background-size: cover;
-      height: 1200px;
+      height: 1250px;
       margin-left: 0;
       margin-right: 0;
       margin-top: 0px;
@@ -29,13 +31,13 @@
       </div>
       <ul class="Ul_head">
         <li><a href="/" class="nav-link">HOME</a></li>
-        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
         <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
         <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
+        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
         <li><a href="/Courses" class="nav-link">COURSES</a></li>
         <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
         <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
-        <li><a href="/interview" class="nav-link">ABOUT US</a></li>
+        <li><a href="/aboutus" class="nav-link">ABOUT US</a></li>
       </ul>
     </nav>
     <!-- <h1>AIML Courses</h1> -->
@@ -65,21 +67,17 @@
           <div class="col-lg-8 align-self-center">
             <div class="content">
               <div class="mb-4">
-                <h2>Subscribe To Our Newsletter</h2>
+                <h2>Join Our Mailing list</h2>
               </div>
               <div class="description">
                 <p>
-                  Follow our socials and subscribe to our newsletter to stay
-                  updated and fetch every information in the world.
+                  Stay in the know by following our socials and subscribing to our Mailing list, where you'll find the
+                  latest information from around the world.
                 </p>
               </div>
               <form action="#">
                 <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter your email address"
-                  />
+                  <input type="text" class="form-control" placeholder="Enter your email address" />
                 </div>
               </form>
             </div>
@@ -99,7 +97,7 @@
         { name: "Natural Language Processing", price: 69.99, img: "./static/pics/c3.jpg" },
         { name: "AI Ethics and Governance", price: 89.99, img: "./static/pics/c4.png" },
         { name: "Deep Learning", price: 99.99, img: "./static/pics/c5.png" },
-        { name: "Deep Learning", price: 99.99, img: "./static/pics/c6.png" },
+        { name: "reinforcement Learning", price: 99.99, img: "./static/pics/c6.png" },
       ];
 
       const coursesContainer = document.getElementById("courses-container");

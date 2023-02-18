@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>AI quiz</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css" />
+  <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
+  <link rel="stylesheet" type="text/css" href="/static/App.css" />
+  <link rel="stylesheet" type="text/css" href="/static/Quizes.css" />
+  <link rel="stylesheet" type="text/css" href="/static/quizpage.css" />
+  <link rel="icon" type="image/x-icon" href="../static/pics/symbol.svg">
+</head>
+<style>
+  .container1 {
+    background-image: url("/static/pics/aboutus.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 940px;
+    padding-top: 15%;
+  }
+
+  .teammember img
+  {
+    height: 300px;
+    width: 280px;
+    border-radius: 10px;
+  }
+
+  .containerteam{
+    display: flex;
+    flex-direction: row;
+    gap:5%;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0px 4px 16px;
+     border-radius: 40px;
+    border: 1px solid #ddd;
+    width: 45%;
+    padding-left: 4.5%;
+    padding-top: 4.5%;
+    margin-left: 50%;
+  }
+
+  /*  */
+  @import url('https://fonts.googleapis.com/css?family=Baloo+Thambi');
+.starbug_title {
+  background-color: #000;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Baloo Thambi', cursive;
+  font-size: 7rem;
+  height: 300px;
+}
+
+.text-container > span {
+  text-transform: uppercase;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.membername>h2{
+    color: whitesmoke;
+    margin-top: 5%;
+}
+
+.membername>p{
+    color: whitesmoke;
+}
+
+.social-links1 {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.social-links1 img{
+    height: 40px;
+}
+
+
+@keyframes glow {
+  0%, 100% {
+    color: #FFF;
+    text-shadow: 0 0 10px #0652DD, 0 0 50px #0652DD, 0 0 100px #0652DD;
+  }
+  
+  10%, 90% {
+    color: #111;
+    text-shadow: none;
+  }
+}
+
+.text-container > span:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.text-container > span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.text-container > span:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+.text-container > span:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.text-container > span:nth-child(6) {
+  animation-delay: 1.25s;
+}
+
+.text-container > span:nth-child(7) {
+  animation-delay: 1.5s;
+}
+  /*  */
+</style>
+
+<body>
+  <nav class="nav_head">
+    <div>
+      <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
+    </div>
+    <ul class="Ul_head">
+      <li><a href="/" class="nav-link">HOME</a></li>
+      <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
+      <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
+      <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
+      <li><a href="/Courses" class="nav-link">COURSES</a></li>
+      <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
+      <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
+      <li><a href="/aboutus" class="nav-link">ABOUT US</a></li>
+    </ul>
+  </nav>
+  <div class="starbug_title">
+      <div class="text-container">
+          <span>s</span>
+          <span>t</span>
+          <span>a</span>
+          <span>r</span>
+          <span>b</span>
+          <span>u</span>
+          <span>g</span>
+        </div>
+    </div>
+  <div class="container1">
+    <div class="containerteam">
+        <div>
+            <div class="teammember">
+                <img src="../static/pics/teamMember1.jpeg"/>
+            </div>
+            <div class="membername">
+                <h2>Deepesh Agrawal</h2>
+                <p>UI/UX Design and frontend</p>
+            </div>
+            <div class="social-links1">
+                <a href="https://github.com/Deepesh76780" target="_blank"><img src="../static/pics/github.png"/></a>
+                <a href="https://www.linkedin.com/in/deepesh-agrawal-238601198" target="_blank"><img src="../static/pics/linkedin.png"/></a>
+                <a href="mailto:da76780@gmail.com" target="_blank"><img src="../static/pics/mail.png"/></a>
+            </div>     
+        </div>
+        <div>
+            <div class="teammember">
+                <img src="../static/pics/teamMember2.jpeg"/>
+            </div>
+            <div class="membername">
+                <h2>Priykrit Varma</h2>
+                <p>Machine Learning</p>
+            </div>
+            <div class="social-links1">
+                <a href="https://github.com/Priykrit" target="_blank"><img src="../static/pics/github.png"/></a>
+                <a href="https://in.linkedin.com/in/priykrit-varma-127aa5249" target="_blank"><img src="../static/pics/linkedin.png"/></a>
+                <a href="mailto:priykritv@gmail.com" target="_blank"><img src="../static/pics/mail.png"/></a>
+            </div>     
+        </div>
+    </div>
+  </div>
+  <section class="section cta-subscribe" id="contact">
+    <div class="container">
+      <div class="row bg-elipse-red">
+        <div class="col-lg-4">
+          <div class="image">
+            <img class="phone-thumb" src="{{footer}}" alt="iphone-app" />
+          </div>
+        </div>
+        <div class="col-lg-8 align-self-center">
+          <div class="content">
+            <div class="mb-4">
+              <h2>Join Our Mailing list</h2>
+            </div>
+            <div class="description">
+              <p>
+                Stay in the know by following our socials and subscribing to our Mailing list, where you'll find the
+                latest information from around the world.
+              </p>
+            </div>
+            <form action="#">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter your email address" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="copyright1__">
+    <span class="copyright2__">
+      @copyright this website and AI model are made by team StarBug 2023
+    </span>
+  </div>
+  <script>
+    const form = document.querySelector("#quiz-form");
+    const results = document.querySelector("#results");
+    const timer = document.querySelector("#timer");
+    const timeLimit = 120;
+    let timeRemaining = timeLimit;
+
+    setInterval(() => {
+      const minutes = Math.floor(timeRemaining / 60);
+      const seconds = timeRemaining % 60;
+      const formattedTime = `${minutes.toString().padStart(2, "0")}:${seconds
+        .toString()
+        .padStart(2, "0")}`;
+      timer.innerText = `Time remaining: ${formattedTime}`;
+
+      if (timeRemaining <= 0) {
+        form.submit();
+      }
+
+      timeRemaining--;
+    }, 1000);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let score = 0;
+      const answers = ["b", "c", "a", "b"];
+
+      let index = 0;
+      for (const question of form.elements) {
+        if (question.type === "radio" && question.checked) {
+          if (question.value === answers[index]) {
+            score++;
+          }
+          index++;
+        }
+      }
+
+      results.innerText = `You scored ${score} out of ${answers.length}!`;
+    });
+  </script>
+</body>
+
+</html>

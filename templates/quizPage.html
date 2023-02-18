@@ -1,192 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>AI quiz</title>
-    <link rel="stylesheet" type="text/css" href="/static/style.css" />
-    <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
-    <link rel="stylesheet" type="text/css" href="/static/App.css" />
-    <link rel="stylesheet" type="text/css" href="/static/Quizes.css" />
-    <link rel="stylesheet" type="text/css" href="/static/quizpage.css" />
-  </head>
-  <style>
-    .container1 {
-      background-image: url("/static/pics/AIBox_bg.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      height: 1200px;
-      margin-left: 0;
-      margin-right: 0;
-      margin-top: 0px;
-      padding: 100px;
-    }
-  </style>
-  <body>
-    <nav class="nav_head">
-      <div>
-        <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
-      </div>
-      <ul class="Ul_head">
-        <li><a href="/" class="nav-link">HOME</a></li>
-        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
-        <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
-        <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
-        <li><a href="/Courses" class="nav-link">COURSES</a></li>
-        <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
-        <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
-        <li><a href="/interview" class="nav-link">ABOUT US</a></li>
-      </ul>
-    </nav>
-    <div class="bolcontainer">
-      <svg viewBox="0 0 960 300" class="svg_heading">
-        <symbol id="s-text">
-          <text text-anchor="middle" x="50%" y="80%">Quiz Paging</text>
-        </symbol>
-        <g class="g-ants">
-          <use xlink:href="#s-text" class="text-copy"></use>
-          <use xlink:href="#s-text" class="text-copy"></use>
-          <use xlink:href="#s-text" class="text-copy"></use>
-          <use xlink:href="#s-text" class="text-copy"></use>
-          <use xlink:href="#s-text" class="text-copy"></use>
-        </g>
-      </svg>
-    </div>
-    <div class="container1">
-      <div class="container">
-        <h1>Quiz Taking Page with Timer</h1>
-        <p id="timer">Time remaining: 00:00</p>
-        <h1>Quiz Taking Page</h1>
-        <form id="quiz-form">
-          <div class="head1">
-            <div class="question">
-              <h2>Question 1:</h2>
-              <p>What is the capital of France?</p>
-              <div class="number">
-                <input type="radio" name="q1" value="a" /> a) London<br />
-                <input type="radio" name="q1" value="b" /> b) Paris<br />
-                <input type="radio" name="q1" value="c" /> c) Rome<br />
-                <input type="radio" name="q1" value="c" /> c) Rome<br />
-              </div>
-            </div>
-            <div class="question">
-              <h2>Question 2:</h2>
-              <p>What is the largest continent?</p>
-              <div class="number">
-                <input type="radio" name="q2" value="a" /> a) North America<br />
-                <input type="radio" name="q2" value="b" /> b) Africa<br />
-                <input type="radio" name="q2" value="c" /> c) Asia<br />
-                <input type="radio" name="q2" value="c" /> c) Asia<br />
-              </div>
-            </div>
-            <div class="question">
-              <h2>Question 3:</h2>
-              <p>What is the largest continent?</p>
-              <div class="number">
-                <input type="radio" name="q2" value="a" /> a) North America<br />
-                <input type="radio" name="q2" value="b" /> b) Africa<br />
-                <input type="radio" name="q2" value="c" /> c) Asia<br />
-                <input type="radio" name="q2" value="c" /> c) Asia<br />
-              </div>
-            </div>
-            <div class="question">
-              <h2>Question 4:</h2>
-              <p>What is the largest continent?</p>
-              <div class="number">
-                <input type="radio" name="q2" value="a" /> a) North America<br />
-                <input type="radio" name="q2" value="b" /> b) Africa<br />
-                <input type="radio" name="q2" value="c" /> c) Asia<br />
-                <input type="radio" name="q2" value="c" /> c) Asia<br />
-              </div>
-            </div>
-          </div>
-          <button type="submit">Submit</button>
-          &nbsp; &nbsp; &nbsp;
-          <button type="reset" onclick="location.reload()">Restart</button>
-        </form>
 
-        <div id="results"></div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>AI quiz</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css" />
+  <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
+  <link rel="stylesheet" type="text/css" href="/static/App.css" />
+  <link rel="stylesheet" type="text/css" href="/static/Quizes.css" />
+  <link rel="stylesheet" type="text/css" href="/static/quizpage.css" />
+  <link rel="icon" type="image/x-icon" href="../static/pics/symbol.svg">
+</head>
+<style>
+  .container1 {
+    background-image: url("/static/pics/Question.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1200px;
+    margin-top: 0px;
+    padding-top: 10%;
+    padding-left: 5%;
+  }
+
+  .we_will_win{
+    display: flex;
+    gap: 5px;
+  }
+</style>
+
+<body>
+  <nav class="nav_head">
+    <div>
+      <img class="nav_symbol" src="{{symbol}}" alt="iphone-app" />
     </div>
-    <section class="section cta-subscribe" id="contact">
-      <div class="container">
-        <div class="row bg-elipse-red">
-          <div class="col-lg-4">
-            <div class="image">
-              <img class="phone-thumb" src="{{footer}}" alt="iphone-app" />
+    <ul class="Ul_head">
+      <li><a href="/" class="nav-link">HOME</a></li>
+      <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
+      <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
+      <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
+      <li><a href="/Courses" class="nav-link">COURSES</a></li>
+      <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
+      <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
+      <li><a href="/aboutus" class="nav-link">ABOUT US</a></li>
+    </ul>
+  </nav>
+  <div class="bolcontainer">
+    <svg viewBox="0 0 960 300" class="svg_heading">
+      <symbol id="s-text">
+        <text text-anchor="middle" x="50%" y="80%">Quiz Paging</text>
+      </symbol>
+      <g class="g-ants">
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+        <use xlink:href="#s-text" class="text-copy"></use>
+      </g>
+    </svg>
+  </div>
+  <div class="container1">
+    <div class="container_quiz">
+      <h1>Supervised Learning Quiz</h1>
+      <p id="timer">Time remaining: 00:00</p>
+      <form id="quiz-form">
+        <div class="head1">
+          <div class="question">
+            <p class="oa">What is the purpose of training a machine learning model?
+            </p>
+            <div class="number">
+              <div class="we_will_win">
+                <input type="radio" name="q1" value="a" /> a)To make predictions on new data<br />
+              </div>
+              <div class="we_will_win">
+              <input type="radio" name="q1" value="a" /> b) To fit the training data perfectly<br />
             </div>
+            <div class="we_will_win">
+            <input type="radio" name="q1" value="a" /> c) To memorize the training data<br />
           </div>
-          <div class="col-lg-8 align-self-center">
-            <div class="content">
-              <div class="mb-4">
-                <h2>Subscribe To Our Newsletter</h2>
-              </div>
-              <div class="description">
-                <p>
-                  Follow our socials and subscribe to our newsletter to stay
-                  updated and fetch every information in the world.
-                </p>
-              </div>
-              <form action="#">
-                <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-              </form>
+          <div class="we_will_win">
+          <input type="radio" name="q1" value="a" /> d) To overfit the training data<br />
+        </div>
+    </div>
+  </div>
+  <div class="question">
+    <!-- <h2>Question 2:</h2> -->
+    <p class="oa">Which of the following is an example of supervised learning?</p>
+    <div class="number">
+      <div class="we_will_win">
+        <input type="radio" name="q1" value="a" /> a) Clustering<br />
+      </div>
+      <div class="we_will_win">
+      <input type="radio" name="q1" value="a" /> b) Reinforcement learning<br />
+    </div>
+    <div class="we_will_win">
+    <input type="radio" name="q1" value="a" /> c) Classification<br />
+  </div>
+  <div class="we_will_win">
+  <input type="radio" name="q1" value="a" />d) Dimensionality reduction<br />
+</div>
+    </div>
+  </div>
+  <div class="question">
+    <!-- <h2>Question 3:</h2> -->
+    <p class="oa">Which of the following is not a commonly used evaluation metric for classification tasks?</p>
+    <div class="number">
+      <div class="we_will_win">
+        <input type="radio" name="q1" value="a" /> a) Accuracy<br />
+      </div>
+      <div class="we_will_win">
+      <input type="radio" name="q1" value="a" /> b) Precision<br />
+    </div>
+    <div class="we_will_win">
+    <input type="radio" name="q1" value="a" /> c) Recall<br />
+  </div>
+  <div class="we_will_win">
+  <input type="radio" name="q1" value="a" /> d) R-squared<br />
+</div>
+    </div>
+  </div>
+  <div class="question">
+    <!-- <h2>Question 4:</h2> -->
+    <p class="oa">Will Team StarBug will win this Hackathon? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(bonus question)</p>
+    <div class="number">
+      <div class="we_will_win">
+        <input type="radio" name="q1" value="a" /> a) Yes<br />
+      </div>
+      <div class="we_will_win">
+      <input type="radio" name="q1" value="a" /> b) No<br />
+    </div>
+    <div class="we_will_win">
+    <input type="radio" name="q1" value="a" /> c) Absolutely Not<br />
+  </div>
+  <div class="we_will_win">
+  <input type="radio" name="q1" value="a" /> d) May be<br />
+</div>
+    </div>
+  </div>
+  </div>
+  <button type="submit">Submit</button>
+  &nbsp; &nbsp; &nbsp;
+  <button type="reset" onclick="location.reload()">Restart</button>
+  </form>
+
+  <div id="results"></div>
+  </div>
+  </div>
+  <section class="section cta-subscribe" id="contact">
+    <div class="container">
+      <div class="row bg-elipse-red">
+        <div class="col-lg-4">
+          <div class="image">
+            <img class="phone-thumb" src="{{footer}}" alt="iphone-app" />
+          </div>
+        </div>
+        <div class="col-lg-8 align-self-center">
+          <div class="content">
+            <div class="mb-4">
+              <h2>Join Our Mailing list</h2>
             </div>
+            <div class="description">
+              <p>
+                Stay in the know by following our socials and subscribing to our Mailing list, where you'll find the
+                latest information from around the world.
+              </p>
+            </div>
+            <form action="#">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter your email address" />
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </section>
-    <div class="copyright1__">
-      <span class="copyright2__">
-        @copyright this website and AI model are made by team StarBug 2023
-      </span>
     </div>
-    <script>
-            const form = document.querySelector("#quiz-form");
-            const results = document.querySelector("#results");
-            const timer = document.querySelector("#timer");
-            const timeLimit = 120;
-      +
-            let timeRemaining = timeLimit;
+  </section>
+  <div class="copyright1__">
+    <span class="copyright2__">
+      @copyright this website and AI model are made by team StarBug 2023
+    </span>
+  </div>
+  <script>
+    const form = document.querySelector("#quiz-form");
+    const results = document.querySelector("#results");
+    const timer = document.querySelector("#timer");
+    const timeLimit = 120;
+    let timeRemaining = timeLimit;
 
-            setInterval(() => {
-              const minutes = Math.floor(timeRemaining / 60);
-              const seconds = timeRemaining % 60;
-              const formattedTime = `${minutes.toString().padStart(2, "0")}:${seconds
-                .toString()
-                .padStart(2, "0")}`;
-              timer.innerText = `Time remaining: ${formattedTime}`;
+    setInterval(() => {
+      const minutes = Math.floor(timeRemaining / 60);
+      const seconds = timeRemaining % 60;
+      const formattedTime = `${minutes.toString().padStart(2, "0")}:${seconds
+        .toString()
+        .padStart(2, "0")}`;
+      timer.innerText = `Time remaining: ${formattedTime}`;
 
-              if (timeRemaining <= 0) {
-                form.submit();
-              }
+      if (timeRemaining <= 0) {
+        form.submit();
+      }
 
-              timeRemaining--;
-            }, 1000);
+      timeRemaining--;
+    }, 1000);
 
-            form.addEventListener("submit", (e) => {
-              e.preventDefault();
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-              let score = 0;
-              const answers = ["b", "c"];
+      let score = 0;
+      const answers = ["b", "c", "a", "b"];
 
-              let index = 0;
-              for (const question of form.elements) {
-                if (question.type === "radio" && question.checked) {
-                  if (question.value === answers[index]) {
-                    score++;
-                  }
-                  index++;
-                }
-              }
+      let index = 0;
+      for (const question of form.elements) {
+        if (question.type === "radio" && question.checked) {
+          if (question.value === answers[index]) {
+            score++;
+          }
+          index++;
+        }
+      }
 
-              results.innerText = `You scored ${score} out of ${answers.length}!`;
-            });
-    </script>
-  </body>
+      results.innerText = `You scored ${score} out of ${answers.length}!`;
+    });
+  </script>
+</body>
+
 </html>

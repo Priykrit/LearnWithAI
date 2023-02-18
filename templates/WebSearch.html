@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
     <link rel="stylesheet" type="text/css" href="/static/App.css" />
     <link rel="stylesheet" type="text/css" href="/static/Practice.css" />
+    <link rel="icon" type="image/x-icon" href="../static/pics/symbol.svg">
     <link rel="stylesheet" type="text/css" href="/static/Courses.css" />
   </head>
   <style>
@@ -19,8 +20,16 @@
      background-size: cover;
      height: 1200px;
      width: 100%;
+     padding-top: 25%;
    }
 
+   .Frame1{
+    border: 10px solid rgba(0, 148, 202, 0.879);
+    border-radius: 15px;
+    width: fit-content;
+    height: 500px;
+    margin-left: 12%;
+   }
    .interview_png{
 
      margin-left: 11%;
@@ -91,12 +100,15 @@
         <li><a href="/Courses" class="nav-link">COURSES</a></li>
         <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
         <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
-        <li><a href="/interview" class="nav-link">ABOUT US</a></li>
+        <li><a href="/aboutus" class="nav-link">ABOUT US</a></li>
       </ul>
     </nav>
 
     <section class="bg">
-      <img src="{{ url_for('videoforWeb') }}" width="50%" class="interview_png" />
+      <!-- <img src="{{ url_for('videoforWeb') }}" width="50%" class="interview_png" /> -->
+      <div class="Frame1">
+        <img src="{{ url_for('videoforWeb') }}" />
+      </div>
     </section>
     <div  class="head1">
      <span>
@@ -138,6 +150,35 @@
         </ul>
         </span>
       </div>
+      <section class="section cta-subscribe" id="contact">
+        <div class="container">
+          <div class="row bg-elipse-red">
+            <div class="col-lg-4">
+              <div class="image">
+                <img class="phone-thumb" src="{{footer}}" alt="iphone-app" />
+              </div>
+            </div>
+            <div class="col-lg-8 align-self-center">
+              <div class="content">
+                <div class="mb-4">
+                  <h2>Join Our Mailing list</h2>
+                </div>
+                <div class="description">
+                  <p>
+                    Stay in the know by following our socials and subscribing to our Mailing list, where you'll find the
+                    latest information from around the world.
+                  </p>
+                </div>
+                <form action="#">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter your email address" />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <div class="copyright1__">
         <span class="copyright2__">
           @copyright this website and AI model are made by team StarBug 2023

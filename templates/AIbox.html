@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="/static/AIbox.css" />
     <link rel="stylesheet" type="text/css" href="/static/App.css" />
     <link rel="stylesheet" type="text/css" href="/static/Quizes.css" />
+    <link rel="icon" type="image/x-icon" href="../static/pics/symbol.svg">
+
     <style>
                    @import url("https://fonts.googleapis.com/css?  family=Lora:400,400i,700,700i");
                    .patterns {
@@ -121,6 +123,83 @@
       margin-top: 0px;
       padding: 100px;
     }
+    /* upload */
+
+    #upload-button{
+      width: fit-content;
+      margin-top:5%;
+      margin-left: 48%;
+      padding: 10px;
+      box-shadow: 1px 1px 10px rgb(100, 100, 100);
+      border-radius: 10px;
+    }
+
+    
+    #upload-button:hover{
+      /* box-shadow: 1px 1px 10px rgb(255, 255, 255); */
+      background-color: #bfbfbf;
+      font: bold;
+      color: white;
+    }
+
+    .upload-popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 60px;
+}
+
+.upload-popup h2 {
+  margin-top: 0;
+}
+
+.upload-popup form {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 50%;
+}
+
+.upload-popup form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.upload-popup form input[type=file] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.upload-popup form input[type=submit],
+.upload-popup form button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.upload-popup form button#close-button {
+  background-color: #888;
+}
+
+.upload-popup form input[type=submit]:hover,
+.upload-popup form button:hover {
+  background-color: #555;
+}
+
+
+    /*  */
   </style>
   <body>
     <nav class="nav_head">
@@ -129,13 +208,13 @@
       </div>
       <ul class="Ul_head">
         <li><a href="/" class="nav-link">HOME</a></li>
-        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
         <li><a href="/Quizes" class="nav-link">QUIZES</a></li>
         <li><a href="/Practice" class="nav-link">PRACTICE</a></li>
+        <li><a href="/AIbox" class="nav-link">AI BOX</a></li>
         <li><a href="/Courses" class="nav-link">COURSES</a></li>
         <li><a href="/nightstudy" class="nav-link">NIGHT STUDY</a></li>
         <li><a href="/interview" class="nav-link">INTERVIEW</a></li>
-        <li><a href="/interview" class="nav-link">ABOUT US</a></li>
+        <li><a href="/aboutus" class="nav-link">ABOUT US</a></li>
       </ul>
     </nav>
     <div class="bolcontainer">
@@ -249,11 +328,21 @@
          </svg>
         </div>        
         <div>
-
           <img src="../static/pics/a6.svg" />
         </div>    
         <a class="ai_" href="/Web">Let's Explore</a>
       </div>
+    </div>
+    <button id="upload-button">Upload Your Model</button>
+    <div id="upload-popup" class="upload-popup">
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+        <h2>Upload File</h2>
+        <label for="file">Select a file to upload:</label>
+        <input type="file" name="file" id="file">
+        <br><br>
+        <input type="submit" value="Upload">
+        <button type="button" id="close-button">Close</button>
+      </form>
     </div>
     <section class="section cta-subscribe" id="contact">
       <div class="container">
@@ -281,30 +370,25 @@
               </form>
             </div>
           </div>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
     </section>
-    <!-- <footer>
-      <div class="footer-content">
-        <h2>Contact Us</h2>
-        <p>We'd love to hear from you!</p>
-        <ul class="contact-info">
-          <li><i class="fas fa-envelope"></i> info@example.com</li>
-          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-          <li>
-            <i class="fas fa-map-marker-alt"></i> 123 Main Street, Anytown, USA
-            12345
-          </li>
-        </ul>
-      </div>
-    </footer> -->
+
     <div class="copyright1__">
       <span class="copyright2__">
         @copyright this website and AI model are made by team StarBug 2023
       </span>
     </div>
+    <script>
+      const uploadButton = document.getElementById('upload-button');
+const uploadPopup = document.getElementById('upload-popup');
+const closeButton = document.getElementById('close-button');
+uploadButton.addEventListener('click', () => {
+  uploadPopup.style.display = 'block';
+});
+closeButton.addEventListener('click', () => {
+  uploadPopup.style.display = 'none';
+});
+    </script>
   </body>
 </html>
