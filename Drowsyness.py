@@ -3,9 +3,9 @@ import cv2
 import numpy as np
 import dlib
 from imutils import face_utils
+import winsound
 
 
-# cap = cv2.VideoCapture(0)
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
@@ -35,15 +35,7 @@ def blinked(a, b, c, d, e, f):
         return 0
 
 
-# while True:
-#     _, frame = cap.read()
 
-
-#     cv2.imshow("Frame", frame)
-
-#     key = cv2.waitKey(1)
-#     if key == 27:
-#       	break
 
 def drowsyness_detector(frame, drowsy_list):
     sleep = drowsy_list[0]
@@ -78,7 +70,10 @@ def drowsyness_detector(frame, drowsy_list):
             drowsy = 0
             active = 0
             if (sleep > 6):
+                frequency=3500
+                duration = 100
                 status = "Sleeping"
+                winsound.Beep(frequency,duration)
             color = (255, 0, 0)
 
         elif (left_blink == 1 or right_blink == 1):
@@ -86,7 +81,10 @@ def drowsyness_detector(frame, drowsy_list):
             active = 0
             drowsy += 1
             if (drowsy > 6):
-                status = "Drowsy !"
+                frequency=3500
+                duration = 100
+                status = "Drowsy"
+                winsound.Beep(frequency,duration)
             color = (0, 0, 255)
 
         else:
@@ -94,7 +92,7 @@ def drowsyness_detector(frame, drowsy_list):
             sleep = 0
             active += 1
             if (active > 6):
-                status = "Active :)"
+                status = "Active"
             color = (0, 255, 0)
 
         cv2.putText(frame, status, (100, 100),

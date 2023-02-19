@@ -51,8 +51,7 @@ def iris_estimation(frame,iris_list):
         center_right = np.array([r_cx, r_cy], dtype=np.int32)
             
            
-        # cv.circle(frame, center_left, int(l_radius), (255, 0, 255), 1, cv.LINE_AA)
-        # cv.circle(frame, center_right, int(r_radius), (0, 0, 255), 1, cv.LINE_AA)
+
 
             
 

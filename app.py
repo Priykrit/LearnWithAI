@@ -1,7 +1,6 @@
 from flask import Flask, make_response, render_template, Response
 import cv2
 import side_face_detection as sfd
-# import pose_detection as ps
 import Drowsyness as dwsy
 from PIL import Image as im
 from flask import Markup
@@ -71,13 +70,13 @@ def drowsy_face():
 
 
 
-sleepbc = 0
-drowsybc = 0
-activebc = 0
+stressed_max = 0
+stressed_moderate = 0
+stress_min = 0
 statusbc = ""
 colorbc = (0, 0, 0)
 
-brightness_list = [sleepbc, drowsybc, activebc, statusbc, colorbc]
+brightness_list = [stressed_max, stressed_moderate, stress_min, statusbc, colorbc]
 
 
 def brightness_control():
@@ -142,7 +141,8 @@ flann = cv2.FlannBasedMatcher(index_params,search_params)
 augment_list2 = [MIN_MATCHES,detector,FLANN_INDEX_KDTREE,index_params,search_params,flann]
 
 input_image = cv2.imread('static\\pics\\vk.jpg')
-augment_image = cv2.imread('static\\pics\\mask.jpg')
+input_image = cv2.flip(input_image,1)
+augment_image = cv2.imread('static\\pics\\DULOGO.jpg')
 
 input_image = cv2.resize(input_image, (300,400),interpolation=cv2.INTER_AREA)
 augment_image = cv2.resize(augment_image, (300,400))
@@ -160,6 +160,7 @@ def aug_mask():
         if not success:
             break
         else:
+            frame=cv2.flip(frame,1)
             frame1 = aug.augment_detector(frame,augment_list,augment_list2)
             # data = im.fromarray(frame)
             ret, buffer = cv2.imencode('.jpg', frame1)
